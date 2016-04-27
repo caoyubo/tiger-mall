@@ -1,0 +1,37 @@
+{
+  "name": "tiger-mall",
+  "description": "Tiger project!",
+  "version": "1.0.0",
+  "author": {
+    "name": "marlowe",
+    "email": "marlowe@tiger.com"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-express-server": "^0.5.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "load-grunt-tasks": "^3.3.0",
+    "async": "^1.2.1",
+    "connect-redis": "^2.3.0",
+    "cookie-parser": "~1.0.1",
+    "ejs": "~0.8.5",
+    "express": "4.12.4",
+    "express-session": "latest",
+    "hiredis": "^0.4.0",
+    "log4js": "^0.6.25",
+    "morgan": "^1.5.3",
+    "redis": "^0.12.1",
+    "request": "^2.57.0",
+    "underscore": "^1.8.3",
+    "express-ejs-layouts": "^1.1.0",
+    "body-parser": "~1",
+    "multiparty": "4.1.2",
+    "formidable": "1.0.17",
+    "gm": "1.18.1"
+  },
+  "keywords": []
+}
