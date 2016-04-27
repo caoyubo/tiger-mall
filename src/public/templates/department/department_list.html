@@ -1,0 +1,134 @@
+<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    </script>
+    <div class="breadcrumbs-content">
+        <span >团队管理</span>
+    </div>
+</div>
+
+<div class="page-content" ng-controller="deparmentController">
+
+        <div class="page-header" >
+
+        </div>
+        <!-- 页头菜单 end -->
+
+        <!-- 内容 -->
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="widget-box widget-color-blue2">
+                    <div class="widget-header">
+                        <h4 class="widget-title lighter smaller">团队名称</h4>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main padding-8">
+                            <div id="tree1" class="tree">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button onclick="" ng-click="add()" data-toggle="modal" data-target="#departmentModal">增加</button>
+        <div ng-include="'/templates/department/department_add.html'"></div>
+</div>
+
+
+<script src="/framework/assets/js/fuelux/data/fuelux.tree-sample-demo-data.js"></script>
+<script src="/framework/assets/js/fuelux/fuelux.tree.min.js"></script>
+
+<script src="/framework/assets/js/ace-elements.min.js"></script>
+<script src="/framework/assets/js/ace.min.js"></script>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($){
+
+
+
+
+        /**
+         $('#tree1').on('loaded', function (evt, data) {
+		});
+
+         $('#tree1').on('opened', function (evt, data) {
+		});
+
+         $('#tree1').on('closed', function (evt, data) {
+		});
+
+         $('#tree1').on('selected', function (evt, data) {
+		});
+         */
+    });
+
+    function setTree(tree_data){
+
+        var newtree = {
+            'ooooo' : {name: '系统管理', type: 'folder'}	,
+            'information-management' : {
+                name: '信息管理',
+                type: 'folder',
+                additionalParameters:{
+                    'children' : {
+                        'organization': {name: '组织管理', type: 'item'},
+                        'user': {name: '系统用户', type: 'item'},
+                        'member': {name: '会员管理', type: 'folder',additionalParameters :{
+                            'children':{
+                                'hahahaha':{name:'hehe',type:'item'},
+                            }
+                        }},
+                    }
+                }
+            }
+        };
+
+        tree_data = tree_data || newtree;
+        var treeData = new DataSourceTree({data: tree_data});
+
+        $('#tree1').ace_tree({
+            dataSource: treeData ,
+            multiSelect:true,
+            loadingHTML:'<div class="tree-loading"><i class="ace-icon fa fa-refresh fa-spin blue"></i></div>',
+            'open-icon' : 'ace-icon tree-minus',
+            'close-icon' : 'ace-icon tree-plus',
+            'selectable' : true,
+            'selected-icon' : 'ace-icon fa fa-check',
+            'unselected-icon' : 'ace-icon fa fa-times'
+        });
+
+        $('#tree1')
+                .on('updated', function(e, result) {
+                    //result.info  >> an array containing selected items
+                    //result.item
+                    //result.eventType >> (selected or unselected)
+                })
+                .on('selected', function(e) {
+                })
+                .on('unselected', function(e) {
+                })
+                .on('opened', function(e) {
+                })
+                .on('closed', function(e) {
+                });
+
+    }
+</script>
+
+<!-- the following scripts are used in demo only for onpage help and you don't need them -->
+<link rel="stylesheet" href="/framework/assets/css/ace.onpage-help.css" />
+<link rel="stylesheet" href="/framework/assets/docs/assets/js/themes/sunburst.css" />
+
+<script type="text/javascript"> ace.vars['base'] = '..'; </script>
+<script src="/framework/assets/js/ace/elements.onpage-help.js"></script>
+<script src="/framework/assets/js/ace/ace.onpage-help.js"></script>
+<script src="/framework/assets/docs/assets/js/rainbow.js"></script>
+<script src="/framework/assets/docs/assets/js/language/generic.js"></script>
+<script src="/framework/assets/docs/assets/js/language/html.js"></script>
+<script src="/framework/assets/docs/assets/js/language/css.js"></script>
+<script src="/framework/assets/docs/assets/js/language/javascript.js"></script>
+

@@ -1,0 +1,147 @@
+<!-- 内容头标题 -->
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+        </script>
+		<showmenu-title/>
+    </div>
+    <!-- 内容头标题 end-->
+
+    <!--页面内容-->
+    <div class="page-content" ng-controller="RoleMainController">
+        <!-- 页头菜单 -->
+        <div class="page-header" >
+        
+            <!-- 搜索框 -->
+			<div class="nav-search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon">
+						<input type="text" placeholder="搜索内容 ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+						<i class="ace-icon fa fa-search nav-search-icon"></i>
+					</span>
+				<button class="btn btn-xs btn-info btn-round " style="height: 28px;width:50px; margin-bottom: 3px;">
+        			搜索
+        		</button>
+				</form>
+			</div>
+			<!--  搜索框 end -->
+        
+	        <button class="btn btn-xs btn-primary btn-round" style="height: 28px;" data-toggle="modal" data-target="#roleModal">
+	        	<i class="ace-icon glyphicon glyphicon-plus-sign align-center bigger-100"></i>
+	        	添加
+	        </button>
+            <div ng-include="'/templates/permission/role/addForm.html'"></div>
+        </div>
+        <!-- 页头菜单 end -->
+
+
+        <!-- 内容 -->
+        <div class="row">
+   
+   			<div class="col-xs-12">
+				<!-- 资源列表 -->
+				<div class="row">
+					<div class="col-xs-12">
+						<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+													
+									<th>序号</th>
+									<th>所属系统</th>
+                                    <th>角色ID</th>
+                                    <th>名称</th>
+                                    <th>描述</th>
+                                    <th>时间</th>
+                                    <th>使用状态</th>
+                                    <th>操作</th>
+                                                    
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr ng-repeat="role in rolePage.list">
+									<td class="center">{{ $index+1 }}</td>
+									<td>{{ role.appId | systemfilter }}</td>
+									<td>{{ role.role }}</td>	
+									<td>{{ role.name }}</td>	
+									<td>{{ role.description }}</td>
+									<td>{{ role.lastModify | date:'yyyy-MM-dd HH:mm:ss' }}</td>																
+									<td class="hidden-480">
+                                       	<label>
+											<input name="enable" ng-click="enableRole(0,role.id)" class="ace ace-switch switch" type="checkbox" ng-if="role.enable==1" checked />
+											<input name="enable" ng-click="enableRole(1,role.id)" class="ace ace-switch switch" type="checkbox" ng-if="role.enable==0"/>
+											<span class="lbl"></span>
+										</label>
+	                                 </td>
+									 <td>
+										<div class="hidden-sm hidden-xs btn-group">
+<%-- 											<button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#roleUpdateModal" ng-click="update(role)">
+												<i class="ace-icon fa fa-pencil-square-o align-center"></i>
+											</button>
+                                            <div ng-include="'/templates/permission/role/updateForm.html'"></div>  --%>
+											<button ng-if=(role.appId!=1) class="btn btn-xs btn-danger" ng-click="deleteById(role)">
+												<i class="ace-icon glyphicon glyphicon-trash align-center"></i>
+											</button>
+										</div>
+									 </td>
+					
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					
+						
+			
+					<div class="row">
+					   <div class="col-xs-6">
+	                       <div class="dataTables_info">					
+	                       </div>
+	                   </div>
+					
+					<div class="col-sm-5">
+						<div class="dataTables_info">
+							<nav class="pull-right">
+								<ul class="pagination">
+									<li class="paginate_button " aria-controls="sample-table-2" tabindex="0">
+										<a>共<span class="red"> {{ rolePage.totalRows }} </span>条</a>
+									</li>
+									<li ng-if="rolePage.totalPage!=0 && rolePage.currentPage!=1" ng-click="PageSkip(rolePage.currentPage-1,rolePage.pageSize)">
+										<a aria-label="Previous">
+											<span aria-hidden="true"> &laquo; </span>
+										</a>
+									</li>
+									<li ng-repeat="pageNum in pageNums" class="{{pageNum.clazz}}" ng-click="PageSkip(pageNum.number,rolePage.pageSize)">
+										<a>{{ pageNum.number }}</a>
+									</li>
+									<li ng-if="rolePage.totalPage!=0 && rolePage.currentPage!=rolePage.totalPages" ng-click="PageSkip(rolePage.currentPage+1,rolePage.pageSize)">
+										<a aria-label="Next">
+											<span aria-hidden="true"> &raquo; </span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					</div>
+					
+				</div>	
+					
+					
+				
+			</div>
+			
+   
+
+
+
+
+
+
+        </div>
+        <!-- 内容 -->
+
+    </div>
+    <!--页面内容 end-->
+    
+    

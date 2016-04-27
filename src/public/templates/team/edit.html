@@ -1,0 +1,100 @@
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <b>修改项目</b>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--添加内容-->
+
+                <form class="form-horizontal" id="add_form" action="/admin/api/project/add" method="post">
+                    <input type="hidden" name="project_id" ng-model="project_info._id">
+                    <div class="form-group">
+                        <label for="project_name" class="col-sm-2 control-label">项目名称:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="project_name" name="project_name" placeholder="项目名称" ng-model="project_info.project_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="team" class="col-sm-2 control-label">负责团队:</label>
+                        <div class="col-sm-10">
+                            <select name="team" id="team" class="form-control">
+                                <option value="0">请选择</option>
+                                <option ng-repeat="item_info in item_list">
+                                    <span ng-bind="item_info.item_name"></span>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="finish_time" class="col-sm-2 control-label">完成时间:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="finish_time" name="finish_time" placeholder="完成时间" ng-model="project_info.finish_time">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 " style="color:#ff0000;font-weight: bold;" id="error_div">
+                        </div>
+                    </div>
+
+                </form>
+
+                <!--添加内容end-->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="submit_form">提交</button>
+                <button type="button" class="btn btn-default"data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal） end-->
+
+<script type="text/javascript" src="/jslib/jquery.validation.min.js"></script>
+<script type="text/javascript" src="/jslib/jquery-ui/jquery.ui.js"></script>
+<script type="text/javascript" src="/jslib/browser.js"></script>
+<link rel="stylesheet" type="text/css" href="/jslib/jquery-ui/themes/ui-lightness/jquery.ui.css"  />
+<script>
+
+
+    $(function(){
+        $('#finish_time').datepicker({dateFormat: 'yy-mm-dd'});
+
+
+        $("#add_form").validate({
+            //错误放在什么地方
+            errorPlacement:function(error,element){
+                $('#error_div').append(error);
+                $('#error_div').append('<br>');
+            },
+
+            rules : {
+                project_name : {
+                    required : true,
+                },
+
+            },
+            messages : {
+                project_name : {
+                    required : '名称不能为空',
+                },
+            },
+        });
+
+        $('#submit_form').click(function(){
+            if($("#add_form").valid()){
+                $("#add_form").submit();
+            }
+
+        })
+
+    })
+</script>

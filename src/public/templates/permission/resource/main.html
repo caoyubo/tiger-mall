@@ -1,0 +1,125 @@
+<!--内容头标题-->
+<div class="breadcrumbs" id="breadcrumbs">
+	<script type="text/javascript">
+		try {
+			ace.settings.check('breadcrumbs', 'fixed')
+		} catch(e) {}
+	</script>
+	<showmenu-title/>
+</div>
+<!--内容头标题end-->
+<!--页面内容-->
+<div class="page-content" ng-controller="ResourceMainController">
+	<!--页头菜单-->
+	<div class="page-header">
+		<!--搜索框-->
+		<div class="nav-search" id="nav-search">
+			<!-- 
+			<form class="form-search">
+				<span class="input-icon">
+					<input type="text" ng-model="addResForm.resource" placeholder="搜索内容 ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+					<i class="ace-icon fa fa-search nav-search-icon"></i>
+				</span>
+				<button ng-click="resourceSearch()" class="btn btn-xs btn-info btn-round " style="height: 28px;width:50px; margin-bottom: 3px;">
+					搜索
+				</button>
+			</form>
+			 -->
+		</div>
+		<!--搜索框end-->
+		<button class="btn btn-xs btn-primary btn-round" style="height: 28px;" data-toggle="modal" data-target="#resourceAddModal">
+			<i class="ace-icon glyphicon glyphicon-plus-sign align-center bigger-100"> </i> 添加
+		</button>
+        <div ng-include="'/templates/permission/resource/addForm.html'"></div>
+	</div>
+	<!--页头菜单end-->
+	<!--内容-->
+	<div class="row">
+		<div class="col-sm-12">
+			<!--资源列表-->
+			<div class="row">
+				<div class="col-sm-12">
+					<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>序号</th>
+								<th>所属系统</th>
+								<th>资源名称</th>
+								<th>资源类型</th>
+								<th>过滤链名称</th>
+								<th>图标</th>
+								<th>资源描述</th>
+								<th>更新时间</th> 
+							<!-- 	<th>使用状态</th> -->
+								<th>操作</th>
+							</tr>
+						</thead>
+							<tr ng-repeat="resource in resourcePage.list">
+								<td class="center">{{ $index+1 }}</td>
+								<td>{{ resource.appId | systemfilter}}</td>
+								<td>{{ resource.name }}</td>
+								<td>{{ resource.type | typefilter}}</td>
+								<td>{{ resource.func}}</td>
+								<td>
+									<i class="{{ resource.icon }}" />
+								</td>
+								<td>{{ resource.description }}</td>
+								<td>{{ resource.lastModify|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+<!-- 								<td>
+									<label style="height: 22px;">
+										<input name="enable" class="ace ace-switch switch" type="checkbox" ng-if="resource.enable==1" checked />
+										<input name="enable" class="ace ace-switch switch" type="checkbox" ng-if="resource.enable==0"/>
+										<span class="lbl"></span>
+									</label>
+								</td> -->
+								<td>
+									<div class="hidden-sm hidden-xs btn-group">
+										<button class="btn btn-xs btn-warning" ng-click="updateResource(resource)" data-toggle="modal" data-target="#resourceUpdateModal">
+											<i class="ace-icon fa fa-pencil-square-o align-center"> </i>
+										</button>
+                                        <div ng-include="'/templates/permission/resource/updateForm.html'"></div>
+										<button ng-if=(resource.appId!=1) class="btn btn-xs btn-danger" ng-click="delById(resource)">
+											<i class="ace-icon glyphicon glyphicon-trash align-center"> </i>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="dataTables_info">
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="dataTables_info">
+							<nav class="pull-right">
+								<ul class="pagination">
+									<li class="paginate_button " aria-controls="sample-table-2" tabindex="0">
+										<a>共<span class="red"> {{ resourcePage.totalRows }} </span>条</a>
+									</li>
+									<li ng-if="resourcePage.totalPage!=0 && resourcePage.currentPage!=1" ng-click="PageSkip(resourcePage.currentPage-1,resourcePage.pageSize)">
+										<a aria-label="Previous">
+											<span aria-hidden="true"> &laquo; </span>
+										</a>
+									</li>
+									<li ng-repeat="pageNum in pageNums" class="{{pageNum.clazz}}" ng-click="PageSkip(pageNum.number,resourcePage.pageSize)">
+										<a>{{ pageNum.number }}</a>
+									</li>
+									<li ng-if="resourcePage.totalPage!=0 && resourcePage.currentPage!=resourcePage.totalPages" ng-click="PageSkip(resourcePage.currentPage+1,resourcePage.pageSize)">
+										<a aria-label="Next">
+											<span aria-hidden="true"> &raquo; </span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--内容-->
+</div>
+<!--页面内容end-->

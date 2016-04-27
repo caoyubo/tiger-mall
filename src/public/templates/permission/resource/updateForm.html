@@ -1,0 +1,181 @@
+<!--模态框（Modal）-->
+
+	<div id="resourceUpdateModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		<form novalidate>
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<b>
+						更新资源
+						</b>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<!--添加内容-->
+					
+					<div class="form-group ">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											系统
+										</label>
+										<div class="col-sm-9 btn-group">
+											<select ng-model="addResForm.appId" require class="btn btn-primary btn-white" style="width:170px;height:34px;overflow:hidden;">
+												<option ng-repeat="item in systems"  value="{{$index+1}}">{{item.appName}}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											名称
+										</label>
+										<div class="form-group has-info col-sm-9 no-padding-left">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="addResForm.name" type="text" required placeholder="资源名称" style="width:170px;" />
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--======================-->
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											类型
+										</label>
+										<div class="col-sm-9 btn-group">
+											<select ng-model="addResForm.type" require class="btn btn-primary btn-white" style="width:170px;height:34px;overflow:hidden;">
+												<option ng-repeat="item in menuTypes"  value="{{$index+1}}">{{item}}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											资源
+										</label>
+										<div class="form-group has-info col-sm-9 no-padding-left">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="addResForm.resource" type="text" required placeholder="资源标识 唯一" style="width:170px;" />
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--======================-->
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											路径
+										</label>
+										<div class="form-group has-info col-sm-9">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="addResForm.templatePath" required type="text" placeholder="碎片页路径" style="width:170px;" />
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											方法
+										</label>
+										<div class="form-group has-info col-sm-9 no-padding-left">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="addResForm.func" type="text" placeholder="过滤链方法" style="width:170px;" />
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--======================-->
+							<div class="row">
+								<div class="col-sm-6">
+<!-- 									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											父ID
+										</label>
+										<div class="form-group has-info col-sm-9">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="addResForm.parentId" required type="text" placeholder="资源ID 表格查询得出" style="width:170px;" />
+											</span>
+										</div>
+									</div> -->
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											父菜单
+										</label>
+										<div class="col-sm-9 btn-group">
+											<select ng-model="addResForm.parentId" require class="btn btn-primary btn-white" style="width:200px;height:34px;overflow:hidden;">
+												<option value="0">无</option>
+												<option ng-repeat="resource in grobalResources"  value="{{ resource.id }}">
+												{{ resource.name }}|{{ resource.appId | systemfilter}}
+												</option>
+											</select>
+										</div>
+									</div>
+									
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">
+											图标
+										</label>
+										<div class="form-group has-info col-sm-9 no-padding-left">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="addResForm.icon" type="text" placeholder="菜单图标" style="width:170px;" />
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--======================-->
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label class="col-sm-6 control-label no-padding-right">
+											描述
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<div class="form-group has-info col-sm-12">
+											<textarea ng-model="addResForm.description" rows="2" cols="63"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">
+					</script>
+					<!--添加内容end-->
+				</div>
+				<div class="modal-footer" style="margin-right:20px;">
+					<button type="submit" class="btn btn-primary" ng-click="updateResourceSubmit()">
+						更新
+					</button>
+					<button type="button" class="btn btn-default" ng-click="hideResModal()">
+						关闭
+					</button>
+				</div>
+			</div>
+			</form>
+			<!--/.modal-content-->
+		</div>
+		<!--/.modal-->
+	</div>

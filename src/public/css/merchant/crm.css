@@ -1,0 +1,292 @@
+/**
+ * 顶部导航和左侧导航
+ */
+@charset "utf-8";
+/**
+ * @subsection 样式重置
+ */
+html,
+body {
+  font-family: Verdana, Arial, Lucida, Helvetica, "\5B8B\4F53", "\5FAE\8F6F\96C5\9ED1", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #808080;
+}
+div,
+form,
+img,
+ul,
+ol,
+li,
+th,
+td,
+dl,
+dt,
+dd,
+button,
+input {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+input {
+  font-size: 12px;
+  vertical-align: middle;
+  color: #333;
+  line-height: 20px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*主背景色*/
+/*header 文字颜色*/
+/*global header*/
+.ui-header {
+  /*height: 106px;*/
+
+  font-size: 12px;
+  color: #808080;
+  background: url(i/top-bg.gif) repeat-x bottom #ffffff;
+  position: relative;
+}
+.ui-header a {
+  color: #48a7e7;
+  text-decoration: none;
+}
+.ui-header a:hover {
+  text-decoration: underline;
+}
+.ui-header img {
+  border: 0;
+}
+.ui-header .l {
+  width: 1260px;
+  margin: 0 auto;
+  clear: both;
+}
+.ui-header .logo {
+  float: left;
+  margin-top: 15px;
+  padding-left: 15px;
+  height: 53px;
+}
+.ui-header .links {
+  float: right;
+  clear: right;
+  margin-top: 7px;
+}
+.ui-header .links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-header .links ul li {
+  float: left;
+  margin: 0 15px 0 0;
+  line-height: 38px;
+  /*切换旧版*/
+
+}
+.ui-header .links ul li a {
+  padding: 10px 10px 10px 5px;
+  color: #333;
+}
+.ui-header .links ul li a:hover {
+  background: #def2ff;
+  color: #2f8dcc;
+  text-decoration: none;
+}
+.ui-header .links ul li i {
+  background: url(i/links2.png) no-repeat;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.ui-header .links ul li i.sys1 {
+  background-position: 0 -150px;
+}
+.ui-header .links ul li i.sys2 {
+  background-position: 0 -90px;
+}
+.ui-header .links ul li i.sys3 {
+  background-position: 0 -120px;
+}
+.ui-header .links ul li i.sys4 {
+  background-position: 0 0px;
+}
+.ui-header .links ul li i.sys5 {
+  background-position: 0 -60px;
+}
+.ui-header .links ul li.fore6 {
+  background: none;
+  color: #f7a750;
+}
+.ui-header .links ul li.fore6 a {
+  padding-left: 0;
+  color: #f7a750;
+}
+.ui-header .top-nav {
+  display: block;
+  clear: both;
+}
+.ui-header .top-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #48a7e7;
+  height: 38px;
+  line-height: 38px;
+  overflow: hidden;
+}
+.ui-header .top-nav ul li {
+  margin: 0;
+  padding: 0 17px;
+  float: left;
+  margin-right: 10px;
+  font-family: "Microsoft Yahei";
+  font-size: 16px;
+}
+.ui-header .top-nav ul li a {
+  color: #fff;
+}
+.ui-header .top-nav ul li a:hover {
+  text-decoration: none;
+}
+.ui-header .top-nav ul li.curr {
+  background: #2f8dcc;
+}
+.ui-header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 38px;
+  left: 0;
+  bottom: 0;
+  background: #48a7e7;
+}
+#footer-2013 {
+  clear: both;
+  width: 1260px;
+  margin: 10px auto 0;
+  text-align: center;
+  font: 12px/150% Arial, Verdana, "\5b8b\4f53";
+  color: #666;
+  border-top: 1px solid #ddd;
+  padding: 10px 20px 20px 20px;
+}
+#footer-2013 img {
+  border: 0;
+}
+#footer-2013 a {
+  color: #666;
+  text-decoration: none;
+}
+#footer-2013 a:hover {
+  color: #e4393c;
+  text-decoration: underline;
+}
+#footer-2013 .links a,
+#footer-2013 .links span {
+  margin: 0 10px;
+}
+#footer-2013 .links span a {
+  margin: 0;
+}
+#footer-2013 .copyright {
+  margin: 10px 0;
+}
+#footer-2013 .authentication a {
+  margin: 0 5px;
+}
+/*ui-menu-main*/
+.ui-menu {
+  padding-top: 8px;
+  width: 190px;
+  float: left;
+}
+.ui-menu .m {
+  margin-bottom: 10px;
+}
+.ui-menu .m .mc {
+  clear: both;
+}
+.ui-menu .m .mc ul li a {
+  font-family: "Microsoft Yahei";
+  display: block;
+  padding: 10px 10px 10px 34px;
+  color: #808080;
+  text-decoration: none;
+}
+.ui-menu .m .mc ul li a i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(i/menu-icon.png) 0px 0px no-repeat;
+  vertical-align: middle;
+  padding: 0;
+  margin-right: 15px;
+}
+.ui-menu .m .mc ul li a i.i1 {
+  background-position: 0px 0px;
+}
+.ui-menu .m .mc ul li a i.i2 {
+  background-position: 0px -20px;
+}
+.ui-menu .m .mc ul li a i.i3 {
+  background-position: 0px -40px;
+}
+.ui-menu .m .mc ul li a i.i4 {
+  background-position: 0px -60px;
+}
+.ui-menu .m .mc ul li a i.i5 {
+  background-position: 0px -80px;
+}
+.ui-menu .m .mc ul li a i.i6 {
+  background-position: 0px -100px;
+}
+.ui-menu .m .mc ul li a i.i7 {
+  background-position: 0px -120px;
+}
+.ui-menu .m .mc ul li a i.i8 {
+  background-position: 0px -140px;
+}
+.ui-menu .m .mc ul li a.cur-loading {
+  cursor: progress;
+}
+.ui-menu .m .mc ul li a:hover {
+  color: #48a7e7;
+}
+.ui-menu .m .mc ul li.curr a {
+  color: #48a7e7;
+}
+.w {
+  overflow: hidden;
+  background: url(i/menu.gif) repeat-y;
+}

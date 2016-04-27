@@ -1,0 +1,32 @@
+[
+
+  {
+    "routeName":"project",
+    "tmpurl": {
+      "url": "/project",
+      "templateUrl": "/templates/project/index.html"
+    }
+  },
+  {
+    "routeName":"dictionary",
+    "tmpurl": {
+      "url": "/dictionary/:id",
+      "templateUrl": "/templates/dictionary/main.html"
+    }
+  },
+  {
+    "routeName":"team",
+    "tmpurl": {
+      "url": "/team",
+      "templateUrl": "/templates/team/index.html"
+    }
+  },
+  {
+    "routeName":"department_list",
+    "tmpurl": {
+      "url": "/department_list/:id",
+      "templateUrl": "/templates/department/department_list.html"
+    }
+  }
+
+]

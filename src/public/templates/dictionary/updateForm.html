@@ -1,0 +1,99 @@
+<!-- 模态框（Modal） -->
+<div id="dicUpdateModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form novalidate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <b>
+                            更新字典
+                        </b>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <!--添加内容-->
+
+                    <div class="form-group ">
+                        <div class="container-fluid">
+                            <!--======================-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right">
+                                            字典名:
+                                        </label>
+                                        <div class="form-group has-info col-sm-9">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="editDicForm.name" type="text" required placeholder="字典的字段名" style="width:270px;" />
+											</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--======================-->
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right">
+                                            数值:
+                                        </label>
+                                        <div class="form-group has-info col-sm-9">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="editDicForm.value" required type="text" placeholder="字段代表的数值" style="width:270px;" />
+											</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right">
+                                            描述:
+                                        </label>
+                                        <div class="form-group has-info col-sm-9">
+											<span class="block input-icon input-icon-right">
+												<textarea ng-model="editDicForm.desc"  rows="3" cols="63" style="resize: none ; width: 270px"></textarea>
+											</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right">
+                                            父字典:
+                                        </label>
+                                        <div class="form-group has-info col-sm-9">
+											<span class="block input-icon input-icon-right">
+												<input ng-model="editDicForm.fid_name" required type="text" readonly="readonly" placeholder="父字典名" style="width:270px;" />
+											</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                </script>
+                <!--添加内容end-->
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary"  ng-click="saveEdit()">
+                    提交
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+    </div>
+    </form>
+    <!--/.modal-content-->
+</div>
+<!--/.modal-->
+</div>

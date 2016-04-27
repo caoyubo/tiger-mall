@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1, 
+    "resource": ".index", 
+    "name": "首页", 
+    "type": "一级菜单", 
+    "url": "/index",
+    "icon": "glyphicon glyphicon-home", 
+    "parentid": 0, 
+    "leaf": false, 
+    "description": "首页", 
+    "lastmodify": 1454445863471, 
+    "enable": 1, 
+    "sub": [ ]
+  },
+  {
+    "id": 2,
+    "resource": ".",
+    "name": " 文档管理",
+    "type": "一级菜单",
+    "url": "/",
+    "icon": "fa fa-list",
+    "parentid": 0,
+    "leaf": true,
+    "description": "用户权限管理",
+    "lastmodify": 1454445863471,
+    "enable": 1,
+    "sub": [
+      {
+        "id": 3,
+        "resource": ".dictionary",
+        "name": "字典管理",
+        "type": "二级菜单",
+        "url": "/dictionary",
+        "icon": "glyphicon glyphicon-user",
+        "parentid": 1,
+        "leaf": false,
+        "description": "字典管理",
+        "lastmodify": 1454445863471,
+        "enable": 1,
+        "sub": [ ]
+      }
+    ]
+  },
+
+
+  {
+    "id": 11,
+    "resource": ".project",
+    "name": "项目管理",
+    "type": "一级菜单",
+    "url": "/project",
+    "icon": "fa fa-list-alt",
+    "parentid": 0,
+    "leaf": false,
+    "description": "项目管理",
+    "lastmodify": 1454445863471,
+    "enable": 1,
+    "sub": []
+  },
+
+  {
+    "id": 12,
+    "resource": ".team",
+    "name": "团队管理",
+    "type": "一级菜单",
+    "url": "/team",
+    "icon": "fa fa-list-alt",
+    "parentid": 0,
+    "leaf": false,
+    "description": "团队管理",
+    "lastmodify": 1454445863471,
+    "enable": 1,
+    "sub": []
+  }
+
+]

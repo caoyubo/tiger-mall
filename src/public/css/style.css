@@ -1,0 +1,14 @@
+/**/
+
+/*错误提醒*/
+label.error{
+    color:#ff0000;
+    font-weight: bold;
+}
+
+/*内容上面小导航*/
+.breadcrumbs .breadcrumbs-content {height:40px;padding-left:10px;}
+.breadcrumbs .breadcrumbs-content span{line-height:40px;font-weight:400;font-size:18px;font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif}
+
+/*表单*/
+.form-group > label[class*="col-"]{padding-top:7px;}

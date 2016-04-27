@@ -1,0 +1,93 @@
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <b>添加团队</b>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--添加内容-->
+
+                <form class="form-horizontal" id="add_form" action="/admin/api/project/add" method="post">
+                    <input type="hidden" name="team_id" ng-model="team_info._id" ng-if="edit_sign">
+                    <div class="form-group">
+                        <label for="team_name" class="col-sm-2 control-label">团队名称:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="team_name" name="team_name" placeholder="团队名称"  ng-model="team_info.team_name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="team_desc" class="col-sm-2 control-label">团队描述:</label>
+                        <div class="col-sm-10">
+                            <textarea  class="form-control" id="team_desc" name="team_desc" placeholder="团队描述"  ng-model="team_info.team_desc"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 " style="color:#ff0000;font-weight: bold;" id="error_div">
+                        </div>
+                    </div>
+
+                </form>
+
+                <!--添加内容end-->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="submit_form" >提交</button>
+                <input type="hidden" id="hidden_submit_form" ng-click="team_submit()">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal） end-->
+
+<script type="text/javascript" src="/jslib/jquery.validation.min.js"></script>
+
+<script>
+
+    $(function(){
+
+        $("#add_form").validate({
+            //错误放在什么地方
+            errorPlacement:function(error,element){
+                $('#error_div').append(error);
+                $('#error_div').append('<br>');
+            },
+
+            rules : {
+                team_name : {
+                    required : true,
+                },
+                team_desc : {
+                    maxlength : 200,
+                }
+
+            },
+            messages : {
+                team_name : {
+                    required : '名称不能为空',
+                },
+                team_desc : {
+                    maxlength : '描述长度不能超过200个字符',
+                }
+            },
+        });
+
+        $('#submit_form').click(function(){
+            if($("#add_form").valid()){
+                $("#hidden_submit_form").click();
+            }
+
+        })
+
+    })
+</script>
