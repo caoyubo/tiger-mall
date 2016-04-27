@@ -1,0 +1,274 @@
+<link href="/hDialog/css/common.css" rel="stylesheet" type="text/css">
+<script src="/hDialog/js/jquery.hDialog.min.js"></script>
+<script src="/js/addressjs.js"></script>
+<script src="/js/public/public.js"></script>
+<div id="main">
+    <div class="mod-main mod-comm">
+        <div class="mt">
+            <h3>收货地址和轻松购</h3>
+        </div>
+        <div class="mc">
+            <div id="describe">
+                <div class="fl">
+                    <p>设置好轻松购信息，就可以在商品页面直接下单 ，购物从此变得简单快乐。</p>
+
+                    <div class="link">
+                        <a href="http://help.jd.com/help/question-147.html" class="ftx-05"
+                           target="_blank">不会操作吗？点我&gt;</a>
+                    </div>
+                    <div class="op-order-method clearfix">
+                        <strong>设置轻松购下单方式：</strong>
+                        <a href="javascript:setEasyBuyFlow(0)" class="order-method order-method-selected simple-order"
+                           id="ordermethod1"><b></b>一键下单
+                            <s class="i1"></s>
+                            <s class="i2"></s>
+                            <s class="i3"></s></a>
+                        <a href="javascript:setEasyBuyFlow(1);" class="order-method order-method normal-order"
+                           id="ordermethod0"><b></b>进入结算页确认下单
+                            <s class="i1"></s>
+                            <s class="i2"></s>
+                            <s class="i3"></s></a>
+                    </div>
+                </div>
+                <div class="extra fr">
+                    <img src="http://misc.360buyimg.com/myjd/skin/2014/i/easybuy.jpg" alt=""/>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+    </div>
+    <div id="addressList" class="mod-main mod-comm">
+        <div class="mt">
+            <a class="e-btn add-btn  bounceInDown  dialog ">新增收货地址</a>
+            <span class="ftx-03">您已创建<span id="addressNum_top" class="ftx-02">2 </span>个收货地址，最多可创建<span class="ftx-02">20</span>个</span>
+        </div>
+        <div class="mc">
+
+            <% for(var i in content) {%>
+            <div class="sm easebuy-m " id="addresssDiv-137871297">
+                <div class="smt">
+                    <h3> <%=content[i].consignee%> <span class="ftx-04 ml10 setDefault"></span></h3>
+
+                    <div class="extra">
+                        <a onclick="alertDelAddressDiag('<%=content[i].id%>' );" class="del-btn" href="#none">删除</a>
+                    </div>
+                </div>
+                <div class="smc">
+                    <div class="items new-items">
+                        <div class="item-lcol">
+                            <div class="item">
+                                <span class="label">收货人：</span>
+
+                                <div class="fl">
+                                    <%=content[i].consignee%>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="item">
+                                <span class="label">所在地区：</span>
+
+                                <div class="fl">
+                                    <%=content[i].addressName%>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="item">
+                                <span class="label">地址：</span>
+
+                                <div class="fl">
+                                    <%=content[i].address%>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="item">
+                                <span class="label">手机：</span>
+
+                                <div class="fl">
+                                    <%=content[i].mobile%>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="item">
+                                <span class="label">固定电话：</span>
+
+                                <div class="fl">
+                                    <%=content[i].telephone%>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="item">
+                                <span class="label">电子邮箱：</span>
+
+                                <div class="fl">
+                                    <%=content[i].email%>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+                        <div class="item-rcol">
+                            <div class="extra">
+                                <a class="ml10 ftx-05" href="javascript:;" onclick="setDefault('<%=content[i].id%>');">使用默认地址</a>
+                                <a class="ml10 ftx-05 dialog" href="javascript:;"
+                                   onclick="alertUpdateAddressDiag('<%=content[i].id%>');">编辑</a>
+                            </div>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+
+        </div>
+
+    </div>
+</div>
+
+<!--添加/修改收获地址-->
+    <div id="HBox" style="display: none"  class="alertUpdateAddress">
+        <div class="thickwrap">
+            <div class="thickcon">
+                <div id="addressDiagDiv">
+                    <title>收货地址</title>
+
+                    <form action="" method="post" onsubmit="return false;" id="address">
+                        <div class="m" id="edit-cont">
+                            <from class="mc">
+                                <div class="form">
+                                    <div class="item">
+                                        <span class="label"><em>*</em>收货人：</span>
+
+                                        <div class="fl">
+                                            <input id="consigneeName" value="" type="text" class="text"
+                                                   name="consignee"/>
+                                            <span id="consigneeNameNote" class="error-msg hide"></span>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="fl">
+                                            <span class="label"><em>*</em>所在地区：</span>
+                                            <select id="provinceDiv" class="sele " onchange="regionPid()"
+                                                    name="provinceDiv">
+                                                <option value="0">请选择</option>
+                                            </select>
+                                            <select id="cityDiv" class="sele" name="cityDiv" onchange="cityRegionPid()">
+                                                <option value="0">请选择</option>
+                                            </select>
+                                            <select id="countyDiv" class="sele" onchange="districtPid()"  name="countyDiv">
+                                                <option value="0">请选择</option>
+                                            </select>
+                                            <select id="district" class="sele" name="district">
+                                                <option value="0">请选择</option>
+                                            </select>
+                                            <span class="error-msg" id="areaNote"></span>
+                                        </div>
+                                        <div class="fl">
+                                            <span class="label"><em>*</em>邮政编码：</span>
+                                            <input type="text" name="zipCode" value="" class="text"
+                                                   style="width: 102px;">
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item">
+                                        <span class="label"><em>*</em>详细地址：</span>
+
+                                        <div class="fl">
+                                            <span style="float: left;margin-right: 5px;line-height:32px;"
+                                                  id="areaName"></span>
+                                            <input id="consigneeAddress" value="" type="text" class="text text1"
+                                                   name="address"/>
+                                        </div>
+                                        <span class="error-msg" id="consigneeAddressNote"></span>
+
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="fl">
+                                            <span class="label"><em>*</em>手机号码：</span>
+                                            <input id="consigneeMobile" value="" type="text" maxlength="11" class="text"
+                                                   name="mobile"/>
+                                        </div>
+                                        <div class="fl">
+                                            <span class="extra-span ftx-03">或</span>
+                                        </div>
+                                        <div class="fl">
+                                            <span class="label">固定电话：</span>
+                                            <input id="consigneePhone" value="" type="text" class="text"
+                                                   name="telephone"/>
+                                            <span class="error-msg hide" id="consigneeMobileNote"></span>
+                                            <span class="clr"></span>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item">
+                                        <span class="label">邮箱：</span>
+
+                                        <div class="fl">
+                                            <input id="consigneeEmail" value="" maxlength="50" type="text"
+                                                   class="text text1" name="email"/>
+                                            <span class="error-msg hide" id="emailNote"></span>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item">
+                                        <span class="label">地址别名：</span>
+
+                                        <div class="fl">
+                                            <input id="consigneeAlias" value="" type="text" class="text"
+                                                   name="signBuild"/>
+                                            <span class="ftx-03">设置一个易记的名称，如：“送到家里”、“送到公司”</span>
+                                            <span class="error-msg hide" id="consigneeAliasNote"></span>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="btns">
+                                        <input type="submit" value="保存收货地址" class="e-btn btn-9 save-btn"
+                                               style="  height: 30px;line-height: 25px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </from>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var browser = navigator.appName
+    var b_version = navigator.appVersion
+    var version = b_version.split(";");
+    var trim_Version = version[1].replace(/[ ]/g, "");
+    if (browser == "Microsoft Internet Explorer" && trim_Version == "MSIE6.0") {
+        $(function () {
+            var $el = $('.dialog');
+            $el.hDialog(); //默认调用
+        });
+    }
+    else if (browser == "Microsoft Internet Explorer" && trim_Version == "MSIE7.0") {
+        // alert("IE 7.0");
+        $(function () {
+            var $el = $('.dialog');
+            $el.hDialog(); //默认调用
+        });
+    }
+    else if (browser == "Microsoft Internet Explorer" && trim_Version == "MSIE8.0") {
+        $(function () {
+            var $el = $('.dialog');
+            $el.hDialog(); //默认调用
+        });
+    }
+    else if (browser == "Microsoft Internet Explorer" && trim_Version == "MSIE9.0") {
+        //alert("IE 9.0");
+    }
+
+</script>
+
+
+
+
+
+

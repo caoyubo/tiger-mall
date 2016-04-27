@@ -1,0 +1,75 @@
+
+<div class="w">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="lh-50">入驻须知</h3>
+            <div class="more">
+                <div class="progress">
+                    <div class="progress-wrap">
+                        <div class="progress-item ongoing">
+                            <div class="number">1</div>
+                            <div class="progress-desc">入驻须知</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item tobe">
+                            <div class="number">2</div>
+                            <div class="progress-desc">公司信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item tobe">
+                            <div class="number">3</div>
+                            <div class="progress-desc">店铺信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item tobe">
+                            <div class="number"><i class="tick"></i></div>
+                            <div class="progress-desc">等待审核</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-content">
+            <form name="stepForm" id="stepForm" method="post" >
+                <div class="textarea">
+                    <div class="agreement">
+                        <p>京东秉承“客户为先，诚信至上”的宗旨、 “让生活变得简单，快乐！”为我们的最终目标，为广大用户提供最优质的商品及服务。
+                            京东开放平台欢迎国际国内知名品牌、拥有特色货品及垂直电商入驻。</p>
+                        <p><strong class="tit">一、以下规则，对于进驻京东开放平台的商家至关重要,请务必仔细阅读：</strong></p>
+                        <p class="cont">1、	京东开放平台总则，详情请见<a href="http://help.jd.com/Vender/question-851.html" target="_blank" class="link">
+                            http://help.jd.com/Vender/question-851.html</a> </p>
+                        <p class="cont">2、	遵守京东开放平台“行业标准”，所有发布的商品均符合行业发布规范。<a href="http://help.jd.com/Vender/question-853.html" target="_blank" class="link">http://help.jd.com/Vender/question-853.html </a></p>
+                        <p class="cont">3、	遵守京东开放平台卖家积分管理规则，详情请见<a href="http://help.jd.com/Vender/viewQuestion-851-2314.html" target="_blank" class="link">
+                            http://help.jd.com/Vender/viewQuestion-851-2314.html</a> </p>
+                        <p class="cont">4、	京东开放平台店铺淘汰机制，详情请见<a href="http://help.jd.com/Vender/viewQuestion-902-2270.html" target="_blank" class="link">http://help.jd.com/Vender/viewQuestion-902-2270.html</a> </p>
+                        <p><strong class="tit">二、为协助新商家顺利入驻，京东开放平台为新入驻商家提供了丰富的基础培训教程：</strong></p>
+                        <p class="cont">1、关于新商家入驻后的必修课程，请进入“京东卖家培训”模板查看<a href="http://mjbbs.jd.com/forum-58-1.html" target="_blank" class="link">http://mjbbs.jd.com/forum-58-1.html </a></p>
+                        <p class="cont">2、运营分析数据，请进入“数据罗盘”查看<a href="http://help.jd.com/Vender/question-801.html" target="_blank" class="link">http://help.jd.com/Vender/question-801.html </a></p>
+                        <p><strong class="tit">三、了解其他运营规则及信息：</strong></p>
+                        <p class="cont">请登录商家帮助中心查看:<a href="http://help.jd.com/vender.html" target="_blank" class="link">http://help.jd.com/vender.html</a></p>
+                    </div>
+                </div>
+            </form>
+            <div class="btn-group ml10 t-r">
+                <input type="submit" value="开始提交" class="btn" id="nextStepBtn"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var isSubmit = false;
+    $(function() {
+//入驻须知
+        jQuery("#nextStepBtn").click(function(){
+            if(isSubmit){
+                return ;
+            }
+            isSubmit = true;
+            window.location.href = "/merchant/contact";
+        });
+    });
+</script>

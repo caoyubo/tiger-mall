@@ -1,0 +1,136 @@
+
+<script src="/js/header.js"></script>
+
+<% include topHeader.html%>
+<!-- #shortcut-2014 -->
+<div class="w">
+    <div id="logo-2014">
+        <a href="http://www.jd.com/" class="logo">京东</a>
+    </div>
+    <div id="search-2014">
+        <ul id="shelper" class="hide" style="display: none;"></ul>
+        <div class="form">
+            <input type="text" onkeydown="javascript:if(event.keyCode==13) search('key');" autocomplete="off" id="key" accesskey="s" class="text" clstag="shangpin|keycount|topitemnormal|b02" />
+            <button onclick="search('key');return false;" class="button cw-icon" clstag="shangpin|keycount|topitemnormal|b03"><i></i>搜索</button>
+        </div>
+    </div>
+    <div id="settleup-2014" class="dorpdown">
+        <div class="cw-icon">
+            <i class="ci-left"></i>
+            <i class="ci-right">&gt;</i>
+            <i class="ci-count" id="shopping-amount">0</i>
+            <a target="_blank" href="/cart/cartList">我的购物车</a>
+        </div>
+        <!--<div class="dorpdown-layer">
+            <div class="spacer"></div>
+            <div id="settleup-content">
+                <span class="loading"></span>
+            </div>
+        </div>-->
+    </div>
+    <div id="hotwords">
+        <strong>热门搜索：</strong>
+        <a href="http://search.jd.com/Search?keyword=%E5%92%96%E5%95%A1&amp;enc=utf-8&amp;area=1" target="_blank">咖啡</a>
+        <a href="http://www.360buy.com/products/1320-1581-1589.html" target="_blank">新疆</a>
+        <a href="http://search.360buy.com/Search?keyword=左旋肉碱&amp;psort=3&amp;page=2&amp;ev=" target="_blank">左旋肉碱</a>
+        <a href="http://search.360buy.com/Search?keyword=钙尔奇" target="_blank">钙尔奇</a>
+        <a href="http://search.jd.com/search?keyword=%BA%EC%BE%C6&amp;qr=&amp;qrst=UNEXPAND&amp;et=&amp;rt=1&amp;area=1&amp;wtype=1" target="_blank">红酒</a>
+        <a href="http://search.360buy.com/Search?keyword=%BD%C0%D2%E6%BD%C0" target="_blank">嚼益嚼</a>
+        <a href="http://search.360buy.com/search?keyword=黄飞红&amp;cid=1591" target="_blank">黄飞红</a>
+        <a href="http://www.jd.com/pinpai/1593-61746.html" target="_blank">新疆红枣</a>
+    </div>
+    <span class="clr"></span>
+</div>
+<div id="nav-2014">
+    <div class="w">
+        <div class="w-spacer"></div>
+        <div id="categorys-2014" class="dorpdown" style="height: auto; left: 0px; position: absolute;">
+            <div class="dt">
+                <a id="allShop" >全部商品分类<i class="ci-right">
+                    <s>
+                        ◇
+                    </s></i></a>
+            </div>
+            <div class="dd" id="itemPanel" style="display:none">
+                <div class="dd-inner" style="display:block">
+                    <% for (var i in goodsClass){%>
+                    <div class="item fore" >
+                        <h3><a target="_blank" href="#"><%=goodsClass[i].name%></a></h3>
+                        <i>&gt;</i>
+                    </div>
+                    <%}%>
+                </div>
+                <!--选项卡面板-->
+                <div class="dorpdown-layer" style="display: block;">
+                    <%for(var i in goodsClass){%>
+                    <div class="item-sub" id="category-item-<%=(i+1)%>" data-id="a">
+                        <div class="item-brands">
+                            <div class="brands-inner">
+                                <a href="#" class="img-link" target="_blank"><img src="//img10.360buyimg.com/vclist/jfs/t832/286/5445725/2411/8aae93c1/54d9eeeeN993b74f4.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img11.360buyimg.com/vclist/jfs/t745/301/749830018/3039/9c96d09e/54d9eef9N5bb8d27f.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img12.360buyimg.com/vclist/jfs/t742/296/752313526/2128/67ff82d9/54d9ef02N99d26435.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img13.360buyimg.com/vclist/jfs/t643/241/1441917153/1991/b7f68956/54d9ef10Nd206a236.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img14.360buyimg.com/vclist/jfs/t703/273/787686128/2436/5299f29d/54d9ef28N00328d44.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img10.360buyimg.com/vclist/jfs/t820/181/3448454/2372/cbfc2389/54d9ef34N7cc61f4c.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img11.360buyimg.com/vclist/jfs/t475/29/1411508579/2230/64183923/54d9ef3eN99aef1f0.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                                <a href="#" class="img-link" target="_blank"><img src="//img12.360buyimg.com/vclist/jfs/t700/76/767891003/1472/c20aa630/54d9ef4cN4fe57f9b.jpg" data-lazy-img="done" width="83" height="35" /></a>
+                            </div>
+                        </div>
+                        <div class="item-channels">
+                            <div class="channels">
+                                <a href="#" target="_blank">品牌日<i>&gt;</i></a>
+                                <a href="#" target="_blank">家电城<i>&gt;</i></a>
+                                <a href="#" target="_blank">智能生活馆<i>&gt;</i></a>
+                                <a href="#" target="_blank">京东净化馆<i>&gt;</i></a>
+                                <a href="#" target="_blank">京东帮服务店<i>&gt;</i></a>
+                                <a href="#" target="_blank">值得买精选<i>&gt;</i></a>
+                            </div>
+                        </div>
+                        <div class="subitems">
+                            <%
+                            var child2 = goodsClass[i].childs;
+                            for(var j in child2){%>
+                            <dl class="fore1">
+                                <dt>
+                                    <a href="#" target="_blank"><%=child2[j].name%><i>&gt;</i></a>
+                                </dt>
+                                <dd>
+                                    <%
+                                    var child3 = child2[j].childs;
+                                    for(var z in child3){%>
+                                    <a href="/product/list?id=<%=child3[z].id%>" target="_blank"><%=child3[z].name%></a>
+                                    <%}%>
+                                </dd>
+                            </dl>
+                            <%}%>
+                        </div>
+                        <div class="item-promotions" >
+                            <a href="#" class="img-link" target="_blank"><img src="//img13.360buyimg.com/vclist/jfs/t2389/165/275589250/4840/8ee021a3/55fc0251Na2aff580.jpg" width="168" height="134" /></a>
+                            <a href="#" class="img-link" target="_blank"><img src="//img14.360buyimg.com/vclist/jfs/t1861/127/362923595/4615/79f60d7/5602986fN2c7e7b0d.jpg" data-lazy-img="done" width="168" height="134" /></a>
+                        </div>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div id="navitems-2014" style="padding-left: 210px;">
+            <ul id="navitems-group1">
+                <li class="fore1" clstag="shangpin|keycount|topitemnormal|c03" id="nav-home"> <a href="http://www.jd.com/">首页</a> </li>
+                <li class="fore2" clstag="shangpin|keycount|topitemnormal|c04" id="nav-fashion"> <a target="_blank" href="http://channel.jd.com/fashion.html">服装城</a> </li>
+                <li class="fore3" clstag="shangpin|keycount|topitemnormal|c05" id="nav-beauty"> <a target="_blank" href="http://channel.jd.com/beautysale.html">美妆馆</a> </li>
+                <li class="fore4" clstag="shangpin|keycount|topitemnormal|c06" id="nav-chaoshi"> <a target="_blank" href="http://channel.jd.com/chaoshi.html">美食</a> </li>
+                <li class="fore5" clstag="shangpin|keycount|topitemnormal|c07" id="nav-jdww"> <a target="_blank" href="http://www.jd.hk/">全球购</a> </li>
+            </ul>
+            <div class="spacer"></div>
+            <ul id="navitems-group2">
+                <li class="fore1" clstag="shangpin|keycount|topitemnormal|c08" id="nav-red"> <a target="_blank" href="http://red.jd.com/">闪购</a> </li>
+                <li class="fore2" clstag="shangpin|keycount|topitemnormal|c09" id="nav-tuan"> <a target="_blank" href="http://tuan.jd.com/">团购</a> </li>
+                <li class="fore3" clstag="shangpin|keycount|topitemnormal|c10" id="nav-auction"> <a target="_blank" href="http://paimai.jd.com/">拍卖</a> </li>
+                <li class="fore4" clstag="shangpin|keycount|topitemnormal|c11" id="nav-jr"> <a target="_blank" href="http://jr.jd.com/">金融</a> </li>
+                <li class="fore5" clstag="shangpin|keycount|topitemnormal|c12" id="nav-smart"> <a target="_blank" href="http://smart.jd.com/">智能</a> </li>
+            </ul>
+        </div>
+        <div id="treasure"></div>
+        <span class="clr"></span>
+    </div>
+</div>

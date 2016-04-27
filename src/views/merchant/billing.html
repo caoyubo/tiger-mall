@@ -1,0 +1,161 @@
+<link href="/hDialog/css/common.css" rel="stylesheet" type="text/css">
+<script src="/hDialog/js/jquery.hDialog.min.js" ></script>
+<script src="/js/public/public.js"></script>
+<script src="/js/billing.js"></script>
+<div class="w">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="lh-50">公司信息提交</h3>
+            <div class="more">
+                <div class="progress">
+                    <div class="progress-wrap">
+                        <div class="progress-item passed">
+                            <div class="number">1</div>
+                            <div class="progress-desc">入驻须知</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item ongoing">
+                            <div class="number">2</div>
+                            <div class="progress-desc">公司信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item tobe">
+                            <div class="number">3</div>
+                            <div class="progress-desc">店铺信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item tobe">
+                            <div class="number"><i class="tick"></i></div>
+                            <div class="progress-desc">等待审核</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="panel-body">
+                <div class="callout mb10">
+                    <i></i>
+                    <div class="content">
+                        1.	信息提交前，请务必先了解<a href="http://help.jd.com/Vender/viewQuestion-1004-2597.html" class="link-blue" target="_blank">京东开放平台招商资质标准细则；</a><br>
+                        2.	公司类信息需填项较多，建议先查看<a href="http://help.jd.com/Vender/viewQuestion-779-2553.html" class="link-blue" target="_blank">公司信息注意事项</a>再进行填写；</a><br>
+                        3.	以下所需要上传电子版资质仅支持JPG、GIF、PNG格式的图片，大小不超过1M，且必须加盖企业彩色公章。
+                    </div>
+                </div>
+                <!-- .m -->
+                <div class="m" >
+                    <div class="mt">
+                        <h4 class="title">税务登记证</h4>
+                    </div>
+                    <div class="mc">
+                        <dl class="horizontal fl" style="height: 260px;">
+                            <dt><span class="red">*</span>纳税人识别号</dt>
+                            <dd>
+                                <input type="text" class="input" name="taxpayerId" value=""/>
+                            </dd>
+                            <dt><span class="red">*</span>纳税类型</dt>
+                            <dd>
+                                <select name="taxpayerTypeId" class="select"  id="taxpayerTypeId">
+                                </select>
+                            </dd>
+
+                            <dt><span class="red">*</span>纳税类型税码</dt>
+                            <dd>
+                                <select name="taxTypeTaxCodeId" class="select"  id="taxTypeTaxCodeId">
+                                </select>
+                            </dd>
+                            <form class="form-horizontal" enctype='multipart/form-data' method='post' action='javascript:;'
+                                  role="form" id="frmUploadFiletaxEnrolCertificateUrl">
+                                <dt><span class="red">*</span>税务登记证电子版</dt>
+                                <dd class="deletePane">
+                                    <input type="file" name="category" class="form-control"  style="width: 180px;"/>
+                                    <button class="btn btn-vice" onClick="uploadFile('frmUploadFiletaxEnrolCertificateUrl','taxEnrolCertificateUrl')">上传</button>
+                                    <span id="fileButton4" class="error"></span>
+                                    <input type="hidden"  name="taxEnrolCertificateUrl"  value="">
+                                </dd>
+                            </form>
+
+                            <form class="form-horizontal" enctype='multipart/form-data' method='post' action='javascript:;'
+                                  role="form" id="frmUploadFilegeneralTaxpayerQualificationUrl">
+                                <dt><span class="red">*</span>一般纳税人资格证电子版</dt>
+                                <dd class="deletePane">
+                                    <input type="file" name="category" class="form-control"  style="width: 180px;"/>
+                                    <button class="btn btn-vice" onClick="uploadFile('frmUploadFiletaxEnrolCertificateUrl','generalTaxpayerQualificationUrl')">上传</button>
+                                    <span id="fileButton4" class="error"></span>
+                                    <input type="hidden"  name="generalTaxpayerQualificationUrl"  value="">
+                                </dd>
+                            </form>
+
+                        </dl>
+                        <div class="view-sample">
+                            <div class="img-wrap">
+                                <img src="http://apply.shop.jd.com/common/images/ruzhu/x_3.jpg" alt="" width="180" height="180" />
+                            </div>
+                            <div class="t-c mt10">
+                                <a href="http://apply.shop.jd.com/common/images/ruzhu/3.jpg" target="_blank" class="link-blue">查看大图</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="m" >
+                    <div class="mt">
+                        <h4 class="title">开户银行许可证</h4>
+                    </div>
+                    <div class="mc">
+                        <dl class="horizontal fl" style="height: 260px;">
+                            <dt><span class="red">*</span>银行卡开户名称</dt>
+                            <dd><input type="text" name="bankCardAccountName" value=""/></dd>
+                            <dt><span class="red">*</span>公司银行卡账号</dt>
+                            <dd><input type="text" class="input" name="bankCardAccount" value="" /></dd>
+                            <dt><span class="red">*</span>开户银行银行支行号</dt>
+                            <dd><input type="text" class="input" id="bankBranchNumber" name="bankBranchNumber" value="" /></dd>
+                            <dt><span class="red">*</span>开户银行支行所在地</dt>
+                            <dd>
+                                <select id="provinceDiv" class="sele " onchange="regionPid()" name="provinceDiv">
+                                    <option value="0">请选择</option>
+                                </select>
+                                <select id="cityDiv" class="sele" name="cityDiv" onchange="cityRegionPid()">
+                                    <option value="0">请选择</option>
+                                </select>
+                                <select id="countyDiv" class="sele" onchange="districtPid()"  name="countyDiv">
+                                    <option value="0">请选择</option>
+                                </select>
+                                <select id="district" class="sele" name="district">
+                                    <option value="0">请选择</option>
+                                </select>
+                            </dd>
+                            <form class="form-horizontal" enctype='multipart/form-data' method='post' action='javascript:;'
+                                  role="form" id="frmUploadFilebankAccountLicenceUrl">
+                                <dt><span class="red">*</span>银行开户许可证电子版</dt>
+                                <dd class="deletePane">
+                                    <input type="file" name="category" class="form-control"  style="width: 180px;"/>
+                                    <button class="btn btn-vice" onClick="uploadFile('frmUploadFilebankAccountLicenceUrl','bankAccountLicenceUrl')">上传</button>
+                                    <span id="fileButton4" class="error"></span>
+                                    <input type="hidden"  name="bankAccountLicenceUrl"  value="">
+                                </dd>
+                            </form>
+
+                        </dl>
+                        <div class="view-sample">
+                            <div class="img-wrap">
+                                <img src="http://apply.shop.jd.com/common/images/ruzhu/x_4.jpg" alt="" width="180" height="180" />
+                            </div>
+                            <div class="t-c mt10">
+                                <a href="http://apply.shop.jd.com/common/images/ruzhu/4.jpg" target="_blank" class="link-blue">查看大图</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .m -->
+            </div>
+            <div class="btn-group t-r">
+                <a href="javascript:void(0);" class="btn-vice" id="prevStepBtn">上一步</a>
+                <input type="submit" value="下一步，完善店铺信息" class="btn" id="nextStepBtn"  onclick="addTax()"/>
+            </div>
+    </div>
+</div>
+

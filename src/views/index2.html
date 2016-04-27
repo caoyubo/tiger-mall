@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="mainApp">
+<head>
+    <base href="/admin/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>
+        <%=title%>
+    </title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+            />
+    <!--bootstrap&fontawesome-->
+    <link rel="stylesheet" href="/framework/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/framework/assets/css/font-awesome.min.css"/>
+    <!--page specific plugin styles-->
+    <!--text fonts-->
+    <link rel="stylesheet" href="/framework/assets/css/ace-fonts.css" />
+    <!--ace styles-->
+    <link rel="stylesheet" href="/framework/assets/css/ace.min.css" id="main-ace-style"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/framework/assets/css/ace-part2.min.css" />
+    <![endif]-->
+    <link rel="stylesheet" href="/framework/assets/css/ace-skins.min.css" />
+    <link rel="stylesheet" href="/framework/assets/css/ace-rtl.min.css" />
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/framework/assets/css/ace-ie.min.css" />
+    <![endif]-->
+    <!--inline styles related to this page-->
+    <!--ace settings handler-->
+    <script src="/framework/assets/js/ace-extra.min.js">
+    </script>
+    <!--HTML5shiv and Respond.js for IE8 to support HTML5 elements and media
+    queries-->
+    <!--[if lte IE 8]>
+    <script src="/framework/assets/js/html5shiv.min.js">
+    </script>
+    <script src="/framework/assets/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!--[if!IE]>-->
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='/framework/assets/js/jquery.min.js'>");
+    </script>
+    <!--<![endif]-->
+    <!--[if IE]>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='/framework/assets/js/jquery1x.min.js'>"
+    </script>
+    ");
+    </script>
+		<![endif]-->
+    <!--引入angularJS-->
+    <script src="/framework/angular-1.3.9/angular.min.js"></script>
+    <script src="/framework/angular-ui/ui-router/angular-ui-router.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/grobal-config.js"></script>
+    <script src="/app/grobal-func.js"></script>
+    <script src="/app/grobal-load.js"></script>
+
+    <script src="/uiplugins/tree.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="no-skin" ng-controller="MainController">
+<!--标题区-->
+<div id="navbar" class="navbar navbar-default">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch(e) {}
+    </script>
+    <!--导航区-->
+    <div class="navbar-container" id="navbar-container">
+        <!--菜单切换-->
+
+        <!--菜单切换end-->
+        <div class="navbar-header pull-left">
+            <!--标题-->
+            <system-title title="<%=title%>"/>
+            <!--标题end-->
+        </div>
+        <!--用户状态、注销-->
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="/framework/assets/avatars/user.jpg" alt="yh's Photo"
+                                />
+                        <i class="ace-icon fa fa-caret-down">
+                        </i>
+                        <user-name/>
+                    </a>
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="logout" id="logout">
+                                <i class="ace-icon fa fa-power-off">
+                                </i>
+                                注销
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--用户状态、注销end-->
+    </div>
+    <!--导航区end-->
+</div>
+<!--标题区end-->
+<!--============================================= 页面 =======================================================-->
+<!--内容区域-->
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch(e) {}
+    </script>
+    <!--左侧菜单栏-->
+    <div id="sidebar" class="sidebar  responsive">
+        <!--菜单头图片-->
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'fixed')
+            } catch(e) {}
+        </script>
+        <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+            <button class="btn btn-success">
+                <i class="ace-icon fa fa-signal">
+                </i>
+            </button>
+            <button class="btn btn-info">
+                <i class="ace-icon fa fa-pencil">
+                </i>
+            </button>
+            <!--#section:basics/sidebar.layout.shortcuts-->
+            <button class="btn btn-warning">
+                <i class="ace-icon fa fa-users">
+                </i>
+            </button>
+            <button class="btn btn-danger">
+                <i class="ace-icon fa fa-cogs">
+                </i>
+            </button>
+            <!--/section:basics/sidebar.layout.shortcuts-->
+        </div>
+        <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+					<span class="btn btn-success">
+					</span>
+					<span class="btn btn-info">
+					</span>
+					<span class="btn btn-warning">
+					</span>
+					<span class="btn btn-danger">
+					</span>
+        </div>
+        <!--菜单头图片-->
+        <!--菜单-->
+        <!--<left-menu/>-->
+        <ul class='nav nav-list'>
+            <li ng-repeat='menu in menus' class="change-class {{menu.current}}">
+                <a ng-if=!menu.leaf ui-sref='{{menu.resource}}' href='#'  ng-mousedown="mouseDown(menu)">
+                    <i class='menu-icon {{menu.icon}}'>
+                    </i>
+                    <b ng-class="{true: 'arrow fa fa-angle-down', false: 'arrow'}['{{menu.leaf}}']">
+                    </b>
+                    <left-menu/>
+                </a>
+                <a ng-if=menu.leaf class="dropdown-toggle" href='#' ng-mousedown="mouseDown(menu)">
+                    <i class='menu-icon {{menu.icon}}'>
+                    </i>
+                    <b ng-class="{true: 'arrow fa fa-angle-down', false: 'arrow'}['{{menu.leaf}}']">
+                    </b>
+                    <left-menu/>
+                </a>
+                <b class='arrow'>
+                </b>
+                <ul ng-if=menu.leaf class='submenu'>
+                    <li ng-repeat='subMenu in menu.sub track by $index' class="changesub-class {{subMenu.current}}">
+                        <a ui-sref='{{subMenu.resource}}' href='#' ng-mousedown="submouseDown(menu,subMenu)">
+                            <i class='menu-icon fa fa-caret-right'>
+                            </i>
+                            <c ng-bind='subMenu.name'/>
+                        </a>
+                        <b class='arrow'>
+                        </b>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!--菜单end-->
+        <!--菜单伸缩-->
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
+               data-icon2="ace-icon fa fa-angle-double-right">
+            </i>
+        </div>
+        <!--/section:basics/sidebar.layout.minimize-->
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'collapsed')
+            } catch(e) {}
+        </script>
+        <!--菜单伸缩end-->
+    </div>
+    <!--左侧菜单栏end-->
+    <!--====================右========================-->
+    <!--右页面内容-->
+    <div class="main-content">
+        <div data-ui-view/>
+    </div>
+    <!--右页面内容end-->
+    <!--===================================脚===================================-->
+    <!--页脚-->
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <span class="bigger-120">
+                    <span class="blue bolder">
+                        NZLM
+                    </span>
+                        统一管理后台&copy;2015-2016
+                    </span>
+                &nbsp;&nbsp;
+                <span class="action-buttons">
+                    <a href="#">
+                        <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--页脚end-->
+</div>
+<!--内容区域end-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='/framework/assets/js/jquery.mobile.custom.min.js'>");
+</script>
+<script src="/framework/assets/js/bootstrap.min.js">
+</script>
+<!--page specific plugin scripts-->
+<!--[if lte IE 8]>
+<script src="/framework/assets/js/excanvas.min.js">
+</script>
+<![endif]-->
+<script src="/framework/assets/js/jquery-ui.custom.min.js">
+</script>
+<script src="/framework/assets/js/jquery.ui.touch-punch.min.js">
+</script>
+<!--ace scripts-->
+<script src="/framework/assets/js/ace-elements.min.js">
+</script>
+<script src="/framework/assets/js/ace.min.js">
+</script>
+<!--the following scripts are used in demo only for onpage help and you
+don't need them -->
+<link rel="stylesheet" href="/framework/assets/css/ace.onpage-help.css"
+        />
+<script type="text/javascript">
+    ace.vars['base'] = '..';
+</script>
+<script src="/framework/assets/js/ace/elements.onpage-help.js">
+</script>
+<script src="/framework/assets/js/ace/ace.onpage-help.js">
+</script>
+<!-- 		<script src="/framework/assets/js/fuelux/data/demo-data.js">
+		</script> -->
+<script src="/framework/assets/js/fuelux/fuelux.tree.min.js">
+</script>
+</body>
+<style type="text/css">
+    a{
+        cursor: pointer;
+    }
+</style>
+</html>

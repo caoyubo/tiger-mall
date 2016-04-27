@@ -1,0 +1,155 @@
+<link href="/hDialog/css/common.css" rel="stylesheet" type="text/css">
+<script src="/hDialog/js/jquery.hDialog.min.js"></script>
+<script src="/js/audit.js"></script>
+<script src="/js/public/public.js"></script>
+<div class="w">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="lh-50">入驻审核</h3>
+            <div class="more">
+                <div class="progress">
+                    <div class="progress-wrap">
+                        <div class="progress-item passed">
+                            <div class="number">1</div>
+                            <div class="progress-desc">入驻须知</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item passed">
+                            <div class="number">2</div>
+                            <div class="progress-desc">公司信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item passed">
+                            <div class="number">3</div>
+                            <div class="progress-desc">店铺信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item ongoing">
+                            <div class="number"><i class="tick"></i></div>
+                            <div class="progress-desc">等待审核</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="callout mb20">
+                <i></i>
+                <div class="content">
+                    资质待提交
+                    <div class="orange">
+                        1、当资质处于待审核认领时，您可对本次已提交的信息进行修改，点击
+                        <font style="color: #aaa">修改公司信息</font>                             <font style="color: #aaa">&nbsp;&nbsp;修改店铺信息</font>                    <br>
+                        2、审核时效，资质初审7个工作日，复审15个工作日，店铺授权1~3个工作日。<br>
+                        3、您可登陆查看审核状态，也可通过商务联系人邮箱了解入驻进度。<br>
+                        4、店铺开通后，登陆商家管理后台的用户名和密码会发送到您入驻时填写的联系人邮箱中。
+                        入驻投诉邮箱：<a href="mailto:popzizhi@jd.com" class="link-blue">popzizhi@jd.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-wrap">
+                    <div class="progress-item tobe">
+                        <div class="number">1</div>
+                        <div class="progress-desc">入驻信息待提交</div>
+                    </div>
+                </div>
+                <div class="progress-wrap">
+                    <div class="progress-item ongoing">
+                        <div class="number">2</div>
+                        <div class="progress-desc">资质审核</div>
+                    </div>
+                </div>
+                <div class="progress-wrap">
+                    <div class="progress-item tobe">
+                        <div class="number">3</div>
+                        <div class="progress-desc">复核</div>
+                    </div>
+                </div>
+                <div class="progress-wrap">
+                    <div class="progress-item tobe">
+                        <div class="number"><i class="tick"></i></div>
+                        <div class="progress-desc">店铺授权</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="m">
+                <div class="mt mt10">
+                    <h4 class="title">
+                        公司审核
+                    </h4>
+                </div>
+                <div class="mc">
+                    <table class="table" style="width:100%;">
+                        <thead>
+                        <tr>
+                            <th width="20%">公司信息</th>
+                            <th width="20%">法人代表</th>
+                            <th width="20%">经营范围</th>
+                            <th width="20%">操作时间</th>
+                            <th width="20%">审核结果</th>
+                        </tr>
+
+                        <tr>
+                            <th width="20%"><%=company.companyName%></th>
+                            <th width="20%"><%=company.legalRepresentative%></th>
+                            <th width="20%"><%=company.bussinessRange%></th>
+                            <th width="20%" class="compantupdate"><%=company.updateTime%></th>
+                            <th width="20%"  class="isPass"><%=company.isPass%></th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="m">
+                <div class="mt mt10">
+                    <h4 class="title">
+                        店铺审核
+                    </h4>
+                </div>
+                <div class="mc">
+                    <table class="table  shop" style="width:100%;">
+                        <thead>
+                        <tr>
+                            <th width="20%">店铺名称</th>
+                            <th width="20%">店铺描述</th>
+                            <th width="20%">操作时间</th>
+                            <th width="20%">审核结果</th>
+                        </tr>
+                        <% for(var i in shop) {%>
+                        <tr>
+                            <th width="20%"> <%=shop[i].shopName%></th>
+                            <th width="40%"><%=shop[i].description%></th>
+                            <th width="20%" class="shopupdate"><%=shop[i].updateDate%></th>
+                            <th width="20%"  class="enable"><%=shop[i].enable%></th>
+                        </tr>
+                        <% } %>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $("#commitQua").click(function() {
+            $("form[name='commitForm']").submit();
+        });
+
+    });
+</script>

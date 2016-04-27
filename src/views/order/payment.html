@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <title>京东支付-请选择支付方式</title>
+    <link rel="icon" href="//sp.jd.com/payment/1.2.0/css/i/ico.ico" type="image/x-icon" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link rel="stylesheet" type="text/css" href="//sp.jd.com/payment/1.2.0/css/main.css?v=20150520" />
+
+</head>
+<body>
+<div class="shortcut">
+    <div class="w">
+        <ul class="s-right">
+            <li id="loginbar" class="s-item fore1"><a href="http://home.jd.com" target="_blank" class="link-user">ljm134*****5...</a>&nbsp;&nbsp;<a href="https://passport.jd.com/uc/login?ltype=logout" class="link-logout">退出</a></li>
+            <li class="s-div">|</li>
+            <li class="s-item fore2"> <a class="op-i-ext" href="http://order.jd.com/center/list.action">我的订单</a> </li>
+            <li class="s-div">|</li>
+            <li class="s-item fore3"> <a class="op-i-ext" target="_blank" href="http://help.jd.com/help/question-68.html">支付帮助</a> </li>
+            <li class="s-div">|</li>
+            <li class="s-item fore4"> <a class="op-i-ext" target="_blank" href="http://survadmin.jd.com/index.php?r=survey/index/sid/757632/lang/zh-Hans">问题反馈</a> </li>
+        </ul>
+        <span class="clr"></span>
+    </div>
+</div>
+<div class="p-header">
+    <div class="w">
+        <div id="logo">
+            <img width="170" height="28" src="//sp.jd.com/payment/1.2.0/css/i/logo.png" alt="京东 收银台" />
+        </div>
+    </div>
+</div>
+<form name="virtualPayForm" id="virtualPayForm" action="/combinationVirtualPay.action" method="post" style="display:none">
+    <input type="checkbox" name="virtualPayType" id="virtualPayBlankNote" value="blank_note" />
+    <input type="hidden" name="" id="baiTiaoCanPay" value="" autocomplete="off" />
+    <input type="hidden" name="instalmentNum" id="fenQiPlanHidden" value="1" autocomplete="off" class="disable" />
+    <input type="hidden" name="userType" id="userTypeHidden" value="1" autocomplete="off" />
+    <input type="hidden" autocomplete="off" name="baiTiaoActivityCode" id="baiTiaoActivityCode" value="" />
+    <input type="hidden" autocomplete="off" name="baiTiaoCouponCode" id="baiTiaoCouponCode" value="" />
+    <input type="hidden" autocomplete="off" name="baiTiaoDiscountAmount" id="baiTiaoDiscountAmount" value="" />
+    <input type="hidden" name="requestInfo" id="decryptPaysession" autocomplete="off" value="ddc23aca58c869dd0788ea54289668b73585858362042a51503a11a324f1b6d4286ee735fb5982012981e6872d5b39326d85d5075f4d95c199df4bcb00497ef5553a9c98ea1bd1f22a879ec43c8a624f1a015274690832efeb2025f306c275a4112ea15c55b97fbe5a28abcd8afe700190632c8ce757cdd8c69250600256b5f357305d8380f42389615ece761b629c56bb94f23c46a04c6e86df8e3700e09a8ecf4cb802bf16402afc5f1cf0a7537f7a297505154fd6bf150f70e4a4baa79189a09e6fb283679a659968de111f3d9f835978d39656ca8f5bc2f9ae83a4b792b8872bac4d02a9264d4f835ea5c83f4ade1ce5d33d51a1f7cd5f07e7274118df2b" />
+    <input type="checkbox" name="virtualPayType" id="virtualPayJrb" value="jr_jrb" />
+    <input type="hidden" name="" id="jrbCanPay" value="" autocomplete="off" />
+    <input type="hidden" name="xjkActivityId" id="xjkActivityId" value="" autocomplete="off" />
+    <input type="hidden" name="xjkRewardAmount" id="xjkRewardAmount" value="" autocomplete="off" />
+    <input type="checkbox" name="virtualPayType" id="virtualPayYue" value="balance_com" />
+    <input type="hidden" name="" id="yueCanPay" value="" autocomplete="off" />
+    <input type="checkbox" name="virtualPayType" id="virtualPayJingBean" value="jingbean" />
+    <input type="hidden" name="" id="jingBeanCanPay" value="" autocomplete="off" />
+    <input type="checkbox" name="virtualPayType" id="virtualPayGangbeng" value="gangbeng" />
+    <input type="hidden" name="" id="gangbengCanPay" value="" autocomplete="off" />
+    <input type="checkbox" name="virtualPayType" id="virtualPayWyQianBao" value="wyQianBao" />
+    <input type="hidden" name="" id="wyQianBaoCanPay" value="" autocomplete="off" />
+    <input type="hidden" name="cardPayType" id="cardPayType" value="" autocomplete="off" />
+    <input type="hidden" name="cardPayAmountHide" id="cardPayAmountHide" value="" autocomplete="off" />
+    <input type="hidden" name="verifCode" id="verifCode" value="" autocomplete="off" />
+    <!--<input type="hidden" name="haveQuickPay" id="haveQuickPay" value="" autocomplete="off" >-->
+</form>
+<form action="/payment/paymentConfirm.action" name="paymentConfirm" id="paymentConfirm" method="post" target="_blank" style="display:none">
+    <input type="hidden" name="orderId" id="orderId" value="10314273943" autocomplete="off" />
+    <input type="hidden" name="paySign" id="paySign" value="ddc23aca58c869dd0788ea54289668b73585858362042a51503a11a324f1b6d4286ee735fb5982012981e6872d5b39326d85d5075f4d95c199df4bcb00497ef5553a9c98ea1bd1f22a879ec43c8a624f1a015274690832efeb2025f306c275a4112ea15c55b97fbe5a28abcd8afe700190632c8ce757cdd8c69250600256b5f357305d8380f42389615ece761b629c56bb94f23c46a04c6e86df8e3700e09a8ecf4cb802bf16402afc5f1cf0a7537f7a297505154fd6bf150f70e4a4baa79189a09e6fb283679a659968de111f3d9f835978d39656ca8f5bc2f9ae83a4b792b8872bac4d02a9264d4f835ea5c83f4ade1ce5d33d51a1f7cd5f07e7274118df2b" autocomplete="off" />
+    <input type="hidden" name="agencyCode" id="agencyCode" autocomplete="off" />
+    <input type="hidden" name="bankCode" id="bankCode" autocomplete="off" />
+    <input type="hidden" name="bankName" id="bankName" autocomplete="off" />
+    <input type="hidden" name="commonBankType" id="commonBankType" value="" autocomplete="off" />
+    <input type="hidden" name="confirmPaymentAmount" id="confirmPayAmount" autocomplete="off" />
+    <input type="hidden" name="shouldPaymentAmount" id="shouldPaymentAmount" autocomplete="off" />
+    <input type="hidden" name="gradedPayment" id="gradedPayment" autocomplete="off" />
+    <input type="hidden" name="toType" id="toType" autocomplete="off" />
+</form>
+<div class="main">
+    <div class="w">
+        <!-- order 订单信息 -->
+        <div class="order">
+            <div class="o-left">
+                <h3 class="o-title"> 请您及时付款，以便订单尽快处理！ 订单号：10314273943 </h3>
+                <p class="o-tips"> 请您在提交订单后<span class="font-red">24小时</span>内完成支付，否则订单会自动取消。 </p>
+            </div>
+            <div class="o-right">
+                <div class="o-price">
+                    <em>应付金额</em>
+                    <strong>47.90</strong>
+                    <em>元</em>
+                </div>
+                <div class="o-detail" id="orderDetail">
+                    <a onclick="payOrder.toggleDetail(this,10314273943);" href="javascript:;" clstag="jr|keycount|cashier_jd|cashier_jd_ddxq">订单详情<i></i></a>
+                </div>
+            </div>
+            <div class="clr"></div>
+            <div class="o-qrcode">
+                <a class="oq-img"> <img alt="" src="//cashier.jd.com/image/getImageV2.action?sign=089f6ea466692cfe725baa00bc7af4a3d6fe37d72ccecc3a56a2b891b85e3c3e&amp;type=1&amp;PassKey=69888DC20A775F79F8C753F1A6697F36" /> </a>
+                <div class="op-arrow"></div>
+                <div class="op-phone"></div>
+            </div>
+            <div class="o-list j_orderList" id="listPayOrderInfo">
+                <!-- 单笔订单 -->
+                <div class="o-list-info">
+                    <span class="mr10" id="shdz"></span>
+                    <span class="mr10" id="shr"></span>
+                    <span id="mobile"></span>
+                </div>
+                <div class="o-list-info">
+                    <span id="spmc"></span>
+                </div>
+                <!-- 单笔订单 end -->
+            </div>
+        </div>
+        <!-- order 订单信息 end -->
+        <input type="hidden" autocomplete="off" name="orderShouldPay" id="orderShouldPayHide" value="47.90" />
+        <input type="hidden" autocomplete="off" name="ordeTypeHide" id="ordeTypeHide" value="0" />
+        <input type="hidden" autocomplete="off" name="orderId" id="orderIdHide" value="10314273943" />
+        <!-- payment 支付方式选择 -->
+        <div class="payment">
+            <div class="paybox paybox-baitiao j_paybox" id="baiTiaoDivContainer">
+                <!-- paybox 京东白条 -->
+                <div class="p-wrap">
+                    <i class="p-border"></i>
+                    <div class="p-key">
+                        <!-- 支付方式选择 -->
+        <span class="p-k-check  p-k-check-baitiao    ui-checkbox-wrap ui-check-disable " onclick="baiTiao.checked()" clstag="jr|keycount|cashier_jd|cashier_jd_jdbt"> <input type="hidden" autocomplete="off" id="baiTiaoIsEnable" value="false" /> <input type="hidden" autocomplete="off" id="creditVersion" value="" /> <i id="baiTiaoCheckBox" class="ui-checkbox-L j_paymentCheck"><em class=""></em></i> <strong class="">京东</strong>
+         <!--当creditInfo中的userType为３时表示为金采用户--> <i class="ui-icon ui-icon-info ml5 j_uiTips" data-tips="&lt;strong&gt;京东白条：&lt;/strong&gt;是京东新推出的会员增值服务，会员&lt;br /&gt;购物时可以享受先消费后付款的全新购物体验，&lt;br /&gt;最长可延后30天付款。"></i> </span>
+                        <!-- 支付方式选择 end -->
+                    </div>
+                    <div class="p-value">
+                        <div class="p-v-line">
+                            <span class="">白条额度未激活，<a target="_blank" href="http://baitiao.jd.com/creditUser/activate" clstag="jr|keycount|cashier_jd|cashier_jd_ljjh">激活白条享免息</a>&nbsp;即可消费</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="paybox j_paybox" id="payBalancePayboxDiv" style="">
+                <div class="p-wrap">
+                    <i class="p-border"></i>
+                    <div class="p-key ">
+                        <!-- 当京东钱包,京东余额,钢镚可以使用时执行正常逻辑 -->
+                        <!-- 当余额中只有京东,京豆大于1000时执行正常逻辑 -->
+                        <!-- 当余额中只有京东,京豆小于1000时执行变灰色逻辑 -->
+                        <span class="p-k-check ui-checkbox-wrap ui-check-disable" onclick="otherPay.checkedForJingbean()" clstag="jr|keycount|cashier_jd|cashier_jd_qtye"> <i class="ui-checkbox-L j_paymentCheck" id="payOherCheckLi"><em class="ui-check-disable"></em></i> <strong>可用余额</strong> </span>
+                    </div>
+                    <input type="hidden" autocomplete="off" value="false" id="otherPayIsEnable" />
+                    <div class="p-value">
+                        <div class="p-v-line">
+                            <div class="j_otherAmountTitle">
+                                &nbsp;京豆
+                            </div>
+                            <div class="j_otherAmountList" style="display:none;" id="otherPayListDiv">
+                                <ul class="otheramount-list">
+                                    <!-- 京豆不到1000时只显示不能进行选择,只提示.点击无反应 -->
+                                    <li class="clearfix">
+                                        <div class="ol-left ui-checkbox-wrap ui-check-disable">
+                                            <i class="ui-checkbox mr5 j_otherAmountCheckbox" id="jingBeanCheckBoxLiLow"><em class="ui-check-disable"></em></i>
+                                            <span>已有京豆&nbsp;<strong>148</strong>&nbsp;个</span>
+                                            <i class="ui-icon ui-icon-info j_uiTips" data-tips="1.京豆支付不超过每笔订单应付金额的50%&lt;br&gt;&lt;/i&gt;2.可使用的京豆数量为1000的整数倍"></i>
+                                            <input type="hidden" autocomplete="off" name="jingbeanBalanceHideLow" id="jingbeanBalanceHideLow" value="148" />
+                                        </div> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-amount" id="otherPayAmountDiv">
+                        <em>支付</em>
+                        <strong id="virtualPayCountStrong">0.00</strong>
+                        <em>元</em>
+                    </div>
+                </div>
+            </div>
+            <!-- paybox 银行卡 -->
+            <div class="paybox j_paybox paybox-selected" id="payCardBoxDiv">
+                <div class="p-wrap">
+                    <i class="p-border"></i>
+                    <div class="p-key">
+                        <!-- 支付方式选择 -->
+                        <span class="p-k-check" id="p-k-check-payCard" onclick="bankCard.checked();" clstag="jr|keycount|cashier_jd|cashier_jd_yhk"> <i class="ui-checkbox-L j_paymentCheck" id="ui-checkbox-L-payCard"><em class="selected"></em></i> <strong>银行卡</strong> </span>
+                        <!-- 支付方式选择 end -->
+                    </div>
+                    <div class="p-value">
+                        <div class="p-v-line" style="height:35px">
+                            <!-- 老用户 已使用 银行卡列表 -->
+                            <div class="j_bankUsed" style="display:none">
+                                <!-- 已选银行 -->
+                                <div class="used-bank">
+                                    <dt class="j_usedBankSelect">
+                                    <div class="ub-item" id="ub-item-firstBank">
+                                    </div>
+                                    <i class="ub-arrow"></i>
+                                    </dt>
+                                    <dd class="j_usedBankList" style="display:none;">
+                                        <ul class="ub-list" id="ub-list-usedCard">
+                                        </ul>
+                                    </dd>
+                                </div>
+                                <!-- 已选银行 end -->
+                                <a class="fl ml20 bank-new" href="javascript:;" onclick="payBankcard.showAllBankList(this)">使用新银行卡</a>
+                                <div class="clr"></div>
+                            </div>
+                            <!-- 老用户 已使用 银行卡列表 end -->
+                            <!-- 返回老用户 银行卡列表 -->
+                            <div class="bank-return j_returnBankUsed" style="display: none;">
+                                <a href="javascript:;" onclick="payBankcard.returnBankUsed()"> <i>&lt;</i> 返回我的银行卡 </a>
+                            </div>
+                            <!-- 返回老用户 银行卡列表 end -->
+                        </div>
+                    </div>
+                    <div class="p-amount">
+                        <em>支付</em>
+                        <strong id="cardPayAmountStrong">47.90</strong>
+                        <em>元</em>
+                    </div>
+                    <!-- 银行卡 区域 -->
+                    <div class="bank-area j_bankArea">
+                        <!-- bank-identific 银行卡自动识别 -->
+                        <div class="bank-identific j_bankIdentific clearfix" style="opacity: 1;">
+                            <div class="bi-input fl mr10 j_uiMagnifying">
+                                <i class="ui-icon ui-icon-pen"></i>
+                                <input type="text" class="bi-i-text" style="width:280px;" id="bi-i-text-cardNo" placeholder="输入银行卡号或简码进行识别" maxlength="25" />
+                                <span class="bi-i-result" id="bi-i-result-bank" style="display:none;"></span>
+                            </div>
+                            <button class="ui-button fl disable" style="display:none;" onclick="payBankcard.editedQuickBank()">确定</button>
+                            <input id="cardVerifyShort" autocomplete="off" type="hidden" value="" />
+                            <span class="font-red ml10" id="font-red-cardError"></span>
+                            <span class="ml10" id="noCardReadminSpan"></span>
+                        </div>
+                        <!-- bank-identific 银行卡自动识别 end -->
+                        <!-- bank-wrap 银行卡选择数据录入区域 -->
+                        <div class="bank-wrap j_tabs j_bankEdit" data-widget="tabs" style="opacity: 1;">
+                            <div class="ui-tab">
+                                <div class="ui-tab-items">
+                                    <ul class="clearfix">
+                                        <li class="ui-tab-item bw-tab-quick curr" data-widget="tab-item" id="quickPayCardMenuLi" onclick="bankCard.quickCardShow()"> <a href="javascript:;"><i></i>快捷支付</a> </li>
+                                        <li class="ui-tab-item bw-tab-wangyin" data-widget="tab-item" id="normalPayCardMenuLi" onclick="bankCard.normalPayCardShow()"> <a href="javascript:;">网银支付</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 快捷支付 -->
+                            <div class="bw-tab-content" data-widget="tab-content" id="quickPayCardDiv">
+                                <!-- 支付银行列表 -->
+                                <div class="payment-list j_quickBankList" id="quickPayListDiv">
+                                    <ul class="pl-wrap">
+                                        <li id="quick_ICBC" class="pl-item" clstag="payment|keycount|bank|c-icbc" onclick="payBankcard.selectedQuickBank('ICBC')"> <span class="bank-logo" id="bank-icbc">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_ICBC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_ICBC" type="hidden" value="{'agencyCode':'300','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_ICBC" type="hidden" value="1万/5万/2万/2万" autocomplete="off" /> <input id="promptInfo_ICBC" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_ICBC" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CCB" class="pl-item" clstag="payment|keycount|bank|c-ccb" onclick="payBankcard.selectedQuickBank('CCB')"> <span class="bank-logo" id="bank-ccb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_CCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_CCB" type="hidden" value="1万/1万/1万/1万" autocomplete="off" /> <input id="promptInfo_CCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CCB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CMB" class="pl-item" clstag="payment|keycount|bank|c-cmb" onclick="payBankcard.selectedQuickBank('CMB')"> <span class="bank-logo" id="bank-cmb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_CMB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CMB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_CMB" type="hidden" value="3万/3万/3万/3万" autocomplete="off" /> <input id="promptInfo_CMB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CMB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_ABC" class="pl-item" clstag="payment|keycount|bank|c-abc" onclick="payBankcard.selectedQuickBank('ABC')"> <span class="bank-logo" id="bank-abc">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_ABC" type="hidden" value="{'agencyCode':'205','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_ABC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_ABC" type="hidden" value="5000元/5000元/1万/5万" autocomplete="off" /> <input id="promptInfo_ABC" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_ABC" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BCOM" class="pl-item" clstag="payment|keycount|bank|c-bcom" onclick="payBankcard.selectedQuickBank('BCOM')"> <span class="bank-logo" id="bank-bcom">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_BCOM" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BCOM" type="hidden" value="{'agencyCode':'152','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_BCOM" type="hidden" value="1万/1万/3万/5万" autocomplete="off" /> <input id="promptInfo_BCOM" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BCOM" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_GDB" class="pl-item" clstag="payment|keycount|bank|c-gdb" onclick="payBankcard.selectedQuickBank('GDB')"> <span class="bank-logo" id="bank-gdb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_GDB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_GDB" type="hidden" value="{'agencyCode':'152','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_GDB" type="hidden" value="2万/2万/3万/5万" autocomplete="off" /> <input id="promptInfo_GDB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_GDB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BOC" class="pl-item" clstag="payment|keycount|bank|c-boc" onclick="payBankcard.selectedQuickBank('BOC')"> <span class="bank-logo" id="bank-boc">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_BOC" type="hidden" value="{'agencyCode':'300','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BOC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_BOC" type="hidden" value="5万/20万//" autocomplete="off" /> <input id="promptInfo_BOC" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BOC" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CMBC" class="pl-item" clstag="payment|keycount|bank|c-cmbc" onclick="payBankcard.selectedQuickBank('CMBC')"> <span class="bank-logo" id="bank-cmbc">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_CMBC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CMBC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_CMBC" type="hidden" value="3万/3万/2万/2万" autocomplete="off" /> <input id="promptInfo_CMBC" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CMBC" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_HXB" class="pl-item" clstag="payment|keycount|bank|c-hxb" onclick="payBankcard.selectedQuickBank('HXB')"> <span class="bank-logo" id="bank-hxb">中国工商银行</span> <em class="pl-i-info"> 支持：信用卡 </em> <input id="quickDebit_HXB" type="hidden" value="" autocomplete="off" /> <input id="quickCredit_HXB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_HXB" type="hidden" value="//2万/2万" autocomplete="off" /> <input id="promptInfo_HXB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_HXB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CIB" class="pl-item" clstag="payment|keycount|bank|c-cib" onclick="payBankcard.selectedQuickBank('CIB')"> <span class="bank-logo" id="bank-cib">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_CIB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CIB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_CIB" type="hidden" value="1万/1万//" autocomplete="off" /> <input id="promptInfo_CIB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CIB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CEB" class="pl-item" clstag="payment|keycount|bank|c-ceb" onclick="payBankcard.selectedQuickBank('CEB')"> <span class="bank-logo" id="bank-ceb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_CEB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CEB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_CEB" type="hidden" value="5万/5万/5万/5万" autocomplete="off" /> <input id="promptInfo_CEB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CEB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_POST" class="pl-item hide" clstag="payment|keycount|bank|c-post" onclick="payBankcard.selectedQuickBank('POST')"> <span class="bank-logo" id="bank-post">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_POST" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_POST" type="hidden" value="{'agencyCode':'152','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_POST" type="hidden" value="5000元/5000元/3万/5万" autocomplete="off" /> <input id="promptInfo_POST" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_POST" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CITIC" class="pl-item hide" clstag="payment|keycount|bank|c-citic" onclick="payBankcard.selectedQuickBank('CITIC')"> <span class="bank-logo" id="bank-citic">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_CITIC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CITIC" type="hidden" value="{'agencyCode':'300','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_CITIC" type="hidden" value="5万/20万/2万/2万" autocomplete="off" /> <input id="promptInfo_CITIC" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CITIC" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_SPDB" class="pl-item hide" clstag="payment|keycount|bank|c-spdb" onclick="payBankcard.selectedQuickBank('SPDB')"> <span class="bank-logo" id="bank-spdb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_SPDB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_SPDB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_SPDB" type="hidden" value="5万/5万/5万/5万" autocomplete="off" /> <input id="promptInfo_SPDB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_SPDB" type="hidden" value="true" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_SDB" class="pl-item hide" clstag="payment|keycount|bank|c-sdb" onclick="payBankcard.selectedQuickBank('SDB')"> <span class="bank-logo" id="bank-sdb">中国工商银行</span> <em class="pl-i-info"> 支持：信用卡 </em> <input id="quickDebit_SDB" type="hidden" value="" autocomplete="off" /> <input id="quickCredit_SDB" type="hidden" value="{'agencyCode':'300','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_SDB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_SDB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_SDB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BOB" class="pl-item hide" clstag="payment|keycount|bank|c-bob" onclick="payBankcard.selectedQuickBank('BOB')"> <span class="bank-logo" id="bank-bob">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_BOB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BOB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_BOB" type="hidden" value="2万/2万/2万/2万" autocomplete="off" /> <input id="promptInfo_BOB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BOB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_PAB" class="pl-item hide" clstag="payment|keycount|bank|c-pab" onclick="payBankcard.selectedQuickBank('PAB')"> <span class="bank-logo" id="bank-pab">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_PAB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_PAB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_PAB" type="hidden" value="5万/5万/5000/5000" autocomplete="off" /> <input id="promptInfo_PAB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_PAB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_NJCB" class="pl-item hide" clstag="payment|keycount|bank|c-njcb" onclick="payBankcard.selectedQuickBank('NJCB')"> <span class="bank-logo" id="bank-njcb">中国工商银行</span> <em class="pl-i-info"> 支持：信用卡 </em> <input id="quickDebit_NJCB" type="hidden" value="" autocomplete="off" /> <input id="quickCredit_NJCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_NJCB" type="hidden" value="//2万/2万" autocomplete="off" /> <input id="promptInfo_NJCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_NJCB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_HZB" class="pl-item hide" clstag="payment|keycount|bank|c-hzb" onclick="payBankcard.selectedQuickBank('HZB')"> <span class="bank-logo" id="bank-hzb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_HZB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_HZB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_HZB" type="hidden" value="2万/2万/2万/2万" autocomplete="off" /> <input id="promptInfo_HZB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_HZB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_SHB" class="pl-item hide" clstag="payment|keycount|bank|c-shb" onclick="payBankcard.selectedQuickBank('SHB')"> <span class="bank-logo" id="bank-shb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_SHB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_SHB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_SHB" type="hidden" value="5万/5万/2万/" autocomplete="off" /> <input id="promptInfo_SHB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_SHB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_SRCB" class="pl-item hide" clstag="payment|keycount|bank|c-srcb" onclick="payBankcard.selectedQuickBank('SRCB')"> <span class="bank-logo" id="bank-srcb">中国工商银行</span> <em class="pl-i-info"> 支持：信用卡 </em> <input id="quickDebit_SRCB" type="hidden" value="" autocomplete="off" /> <input id="quickCredit_SRCB" type="hidden" value="{'agencyCode':'300','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_SRCB" type="hidden" value="//5000元/2万" autocomplete="off" /> <input id="promptInfo_SRCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_SRCB" type="hidden" value="true" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_WZCB" class="pl-item hide" clstag="payment|keycount|bank|c-wzcb" onclick="payBankcard.selectedQuickBank('WZCB')"> <span class="bank-logo" id="bank-wzcb">中国工商银行</span> <em class="pl-i-info"> 支持：信用卡 </em> <input id="quickDebit_WZCB" type="hidden" value="" autocomplete="off" /> <input id="quickCredit_WZCB" type="hidden" value="{'agencyCode':'152','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_WZCB" type="hidden" value="//3万/5万" autocomplete="off" /> <input id="promptInfo_WZCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_WZCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_JSB" class="pl-item hide" clstag="payment|keycount|bank|c-jsb" onclick="payBankcard.selectedQuickBank('JSB')"> <span class="bank-logo" id="bank-jsb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_JSB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_JSB" type="hidden" value="{'agencyCode':'300','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_JSB" type="hidden" value="2万/2万/2万/2万" autocomplete="off" /> <input id="promptInfo_JSB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_JSB" type="hidden" value="true" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BOCD" class="pl-item hide" clstag="payment|keycount|bank|c-bocd" onclick="payBankcard.selectedQuickBank('BOCD')"> <span class="bank-logo" id="bank-bocd">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BOCD" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BOCD" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BOCD" type="hidden" value="2万/2万//" autocomplete="off" /> <input id="promptInfo_BOCD" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BOCD" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CQRCB" class="pl-item hide" clstag="payment|keycount|bank|c-cqrcb" onclick="payBankcard.selectedQuickBank('CQRCB')"> <span class="bank-logo" id="bank-cqrcb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_CQRCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CQRCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_CQRCB" type="hidden" value="2万/2万//" autocomplete="off" /> <input id="promptInfo_CQRCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CQRCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BHRCB" class="pl-item hide" clstag="payment|keycount|bank|c-bhrcb" onclick="payBankcard.selectedQuickBank('BHRCB')"> <span class="bank-logo" id="bank-bhrcb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BHRCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BHRCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BHRCB" type="hidden" value="5千/5万//" autocomplete="off" /> <input id="promptInfo_BHRCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BHRCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_HBNX" class="pl-item hide" clstag="payment|keycount|bank|c-hbnx" onclick="payBankcard.selectedQuickBank('HBNX')"> <span class="bank-logo" id="bank-hbnx">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_HBNX" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_HBNX" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_HBNX" type="hidden" value="2万/2万//" autocomplete="off" /> <input id="promptInfo_HBNX" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_HBNX" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_SHXNX" class="pl-item hide" clstag="payment|keycount|bank|c-shxnx" onclick="payBankcard.selectedQuickBank('SHXNX')"> <span class="bank-logo" id="bank-shxnx">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_SHXNX" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_SHXNX" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_SHXNX" type="hidden" value="5千/2万//" autocomplete="off" /> <input id="promptInfo_SHXNX" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_SHXNX" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_GSNX" class="pl-item hide" clstag="payment|keycount|bank|c-gsnx" onclick="payBankcard.selectedQuickBank('GSNX')"> <span class="bank-logo" id="bank-gsnx">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_GSNX" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_GSNX" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_GSNX" type="hidden" value="5千/2万//" autocomplete="off" /> <input id="promptInfo_GSNX" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_GSNX" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BOXM" class="pl-item hide" clstag="payment|keycount|bank|c-boxm" onclick="payBankcard.selectedQuickBank('BOXM')"> <span class="bank-logo" id="bank-boxm">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BOXM" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BOXM" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BOXM" type="hidden" value="5000元/5万//" autocomplete="off" /> <input id="promptInfo_BOXM" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BOXM" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_JZCB" class="pl-item hide" clstag="payment|keycount|bank|c-jzcb" onclick="payBankcard.selectedQuickBank('JZCB')"> <span class="bank-logo" id="bank-jzcb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_JZCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_JZCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_JZCB" type="hidden" value="2万/5万//" autocomplete="off" /> <input id="promptInfo_JZCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_JZCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BOLJ" class="pl-item hide" clstag="payment|keycount|bank|c-bolj" onclick="payBankcard.selectedQuickBank('BOLJ')"> <span class="bank-logo" id="bank-bolj">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BOLJ" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BOLJ" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BOLJ" type="hidden" value="5000元/1万//" autocomplete="off" /> <input id="promptInfo_BOLJ" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BOLJ" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_GDNYB" class="pl-item hide" clstag="payment|keycount|bank|c-gdnyb" onclick="payBankcard.selectedQuickBank('GDNYB')"> <span class="bank-logo" id="bank-gdnyb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_GDNYB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_GDNYB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_GDNYB" type="hidden" value="5万/5万/5万/" autocomplete="off" /> <input id="promptInfo_GDNYB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_GDNYB" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CHAB" class="pl-item hide" clstag="payment|keycount|bank|c-chab" onclick="payBankcard.selectedQuickBank('CHAB')"> <span class="bank-logo" id="bank-chab">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_CHAB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CHAB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_CHAB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_CHAB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CHAB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_ORDOS" class="pl-item hide" clstag="payment|keycount|bank|c-ordos" onclick="payBankcard.selectedQuickBank('ORDOS')"> <span class="bank-logo" id="bank-ordos">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_ORDOS" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_ORDOS" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_ORDOS" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_ORDOS" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_ORDOS" type="hidden" value="true" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BJRCB" class="pl-item hide" clstag="payment|keycount|bank|c-bjrcb" onclick="payBankcard.selectedQuickBank('BJRCB')"> <span class="bank-logo" id="bank-bjrcb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BJRCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BJRCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BJRCB" type="hidden" value="5000元/5000元//" autocomplete="off" /> <input id="promptInfo_BJRCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BJRCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_WHRCB" class="pl-item hide" clstag="payment|keycount|bank|c-whrcb" onclick="payBankcard.selectedQuickBank('WHRCB')"> <span class="bank-logo" id="bank-whrcb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_WHRCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_WHRCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_WHRCB" type="hidden" value="5万/5万//" autocomplete="off" /> <input id="promptInfo_WHRCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_WHRCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_DYLSCZ" class="pl-item hide" clstag="payment|keycount|bank|c-dylscz" onclick="payBankcard.selectedQuickBank('DYLSCZ')"> <span class="bank-logo" id="bank-dylscz">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_DYLSCZ" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_DYLSCZ" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_DYLSCZ" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_DYLSCZ" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_DYLSCZ" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_QSB" class="pl-item hide" clstag="payment|keycount|bank|c-qsb" onclick="payBankcard.selectedQuickBank('QSB')"> <span class="bank-logo" id="bank-qsb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_QSB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_QSB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_QSB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_QSB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_QSB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BSB" class="pl-item hide" clstag="payment|keycount|bank|c-bsb" onclick="payBankcard.selectedQuickBank('BSB')"> <span class="bank-logo" id="bank-bsb">中国工商银行</span> <em class="pl-i-info"> 支持：信用卡 </em> <input id="quickDebit_BSB" type="hidden" value="" autocomplete="off" /> <input id="quickCredit_BSB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_BSB" type="hidden" value="//1万/2万" autocomplete="off" /> <input id="promptInfo_BSB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BSB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_WFCCB" class="pl-item hide" clstag="payment|keycount|bank|c-wfccb" onclick="payBankcard.selectedQuickBank('WFCCB')"> <span class="bank-logo" id="bank-wfccb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_WFCCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_WFCCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_WFCCB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_WFCCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_WFCCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_JZB" class="pl-item hide" clstag="payment|keycount|bank|c-jzb" onclick="payBankcard.selectedQuickBank('JZB')"> <span class="bank-logo" id="bank-jzb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_JZB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_JZB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_JZB" type="hidden" value="2万/2万//" autocomplete="off" /> <input id="promptInfo_JZB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_JZB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BOLY" class="pl-item hide" clstag="payment|keycount|bank|c-boly" onclick="payBankcard.selectedQuickBank('BOLY')"> <span class="bank-logo" id="bank-boly">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BOLY" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BOLY" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BOLY" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_BOLY" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BOLY" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_LSB" class="pl-item hide" clstag="payment|keycount|bank|c-lsb" onclick="payBankcard.selectedQuickBank('LSB')"> <span class="bank-logo" id="bank-lsb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_LSB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_LSB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_LSB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_LSB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_LSB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_HSB" class="pl-item hide" clstag="payment|keycount|bank|c-hsb" onclick="payBankcard.selectedQuickBank('HSB')"> <span class="bank-logo" id="bank-hsb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_HSB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_HSB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_HSB" type="hidden" value="2万/5万//" autocomplete="off" /> <input id="promptInfo_HSB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_HSB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_JJCCB" class="pl-item hide" clstag="payment|keycount|bank|c-jjccb" onclick="payBankcard.selectedQuickBank('JJCCB')"> <span class="bank-logo" id="bank-jjccb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_JJCCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_JJCCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_JJCCB" type="hidden" value="5000/50000//" autocomplete="off" /> <input id="promptInfo_JJCCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_JJCCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_DZB" class="pl-item hide" clstag="payment|keycount|bank|c-dzb" onclick="payBankcard.selectedQuickBank('DZB')"> <span class="bank-logo" id="bank-dzb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_DZB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_DZB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_DZB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_DZB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_DZB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_TAB" class="pl-item hide" clstag="payment|keycount|bank|c-tab" onclick="payBankcard.selectedQuickBank('TAB')"> <span class="bank-logo" id="bank-tab">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_TAB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_TAB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_TAB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_TAB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_TAB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_LWB" class="pl-item hide" clstag="payment|keycount|bank|c-lwb" onclick="payBankcard.selectedQuickBank('LWB')"> <span class="bank-logo" id="bank-lwb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_LWB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_LWB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_LWB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_LWB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_LWB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_HKB" class="pl-item hide" clstag="payment|keycount|bank|c-hkb" onclick="payBankcard.selectedQuickBank('HKB')"> <span class="bank-logo" id="bank-hkb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_HKB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_HKB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_HKB" type="hidden" value="5000/10000//" autocomplete="off" /> <input id="promptInfo_HKB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_HKB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_CJCCB" class="pl-item hide" clstag="payment|keycount|bank|c-cjccb" onclick="payBankcard.selectedQuickBank('CJCCB')"> <span class="bank-logo" id="bank-cjccb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_CJCCB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_CJCCB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_CJCCB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_CJCCB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_CJCCB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_BONC" class="pl-item hide" clstag="payment|keycount|bank|c-bonc" onclick="payBankcard.selectedQuickBank('BONC')"> <span class="bank-logo" id="bank-bonc">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_BONC" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_BONC" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_BONC" type="hidden" value="2万/2万//" autocomplete="off" /> <input id="promptInfo_BONC" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_BONC" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_HUBNX" class="pl-item hide" clstag="payment|keycount|bank|c-hubnx" onclick="payBankcard.selectedQuickBank('HUBNX')"> <span class="bank-logo" id="bank-hubnx">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="quickDebit_HUBNX" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_HUBNX" type="hidden" value="{'agencyCode':'131','cardTypeCode':'2','activityId':0}" autocomplete="off" /> <input id="amountLimit_HUBNX" type="hidden" value="5万/5万/2万/2万" autocomplete="off" /> <input id="promptInfo_HUBNX" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_HUBNX" type="hidden" value="false" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li id="quick_RZB" class="pl-item hide" clstag="payment|keycount|bank|c-rzb" onclick="payBankcard.selectedQuickBank('RZB')"> <span class="bank-logo" id="bank-rzb">中国工商银行</span> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="quickDebit_RZB" type="hidden" value="{'agencyCode':'131','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="quickCredit_RZB" type="hidden" value="" autocomplete="off" /> <input id="amountLimit_RZB" type="hidden" value="///" autocomplete="off" /> <input id="promptInfo_RZB" type="hidden" value="" autocomplete="off" /> <input id="isVaildCVV2_RZB" type="hidden" value="" autocomplete="off" /> <i class="pl-i-selected"></i> </li>
+                                        <li class="pl-more j_showBankMore" id="j_showQuickBankLi"> <span>更多银行</span> </li>
+                                    </ul>
+                                    <div class="bw-more-unionpay">
+                                        如果以上没有您需要的银行，请使用&nbsp;
+                                        <a href="javascript:void(0)" onclick="unionPaySubmit();">银联在线支付</a>
+                                        <input type="hidden" name="to_type" value="" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <script>
+                                    //默认展示11个网银支付的银行，其他银行默认隐藏，点击 更多银行再展示
+                                    $(function(){
+                                        var n_ul = $("#quickPayCardDiv").find("ul");
+                                        var n_lis=n_ul.children();
+                                        if(n_lis.length>11){
+                                            for(var i=0;i<n_lis.length;i++){
+                                                if(i>=11){
+                                                    if(n_lis[i].id !="j_showQuickBankLi"){
+                                                        n_lis[i].className = n_lis[i].className + " hide";
+                                                    }
+                                                } else{
+                                                    if(n_lis[i].id !="j_showQuickBankLi"){
+                                                        n_lis[i].className =n_lis[i].className;
+                                                    }
+                                                }
+                                            }
+                                        } else{
+                                            $("#quickPayListDiv").find(".j_showBankMore").remove();
+                                        }
+
+                                    });
+                                </script>
+                                <!-- 支付银行列表 end -->
+                                <!-- 快捷支付 表单 信用卡请添加class type-credit -->
+                                <div class="bw-quick j_quickBankEdit" id="bw-quick-cardType" style="display:none;">
+                                    <div class="ui-form">
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">付款银行</label>
+                                            <div class="ui-form-group">
+                                                <div class="clearfix">
+                                                    <!-- 已选银行 -->
+                                                    <div class="bank-selected fl clearfix" id="bank-selected-quickpay">
+                                                        <span id="quickBankEdit-default" class="bank-logo"></span>
+                                                        <em class="mr10" id="amountLimit-single"></em>
+                                                        <em id="amountLimit-day"></em>
+                                                    </div>
+                                                    <a class="fl bw-q-return ml10" href="javascript:;" onclick="payBankcard.quickToOther(this)"> <i class="ui-icon ui-icon-return mr5"></i>选择其他银行</a>
+                                                    <!-- 已选银行 end -->
+                                                </div>
+                                                <div class="bw-bank-tips">
+                                                    <span class="font-red" id="quickBank_promptInfo"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">卡种</label>
+                                            <div class="ui-form-group">
+                                                <div class="bw-q-switch">
+                                                    <span id="debit-radio" class="mr20 ui-radio-wrap"> <i class="ui-radio" id="radio-cardType"><em class=""></em></i> 储蓄卡 </span>
+                                                    <span id="credit-radio" class="ui-radio-wrap"> <i class="ui-radio"><em class="selected"></em></i> 信用卡 </span>
+                                                    <span class="ml10" id="unEditor-cardType"></span>
+                                                </div>
+                                                <span class="clr"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">银行卡号</label>
+                                            <div class="ui-form-group" id="ui-form-group-cardNo">
+                                                <input type="text" class="ui-input j_uiMagnifying" id="ui-input-cardNo" maxlength="23" autocomplete="off" />
+                                                <input id="input-cardNo-verify" autocomplete="off" type="hidden" value="false" />
+                                                <span class="ml10" id="unEditor-cardNo"></span>
+                                                <span class="font-red ml10" id="font-red-cardNo"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line" id="quick-form-validity">
+                                            <label class="ui-form-label">有效期</label>
+                                            <div class="ui-form-group" id="ui-form-group-validity">
+                                                <span id="ui-select-validity"> <select class="ui-select" name="" id="ui-select-month"> <option value="">选择</option> <option value="01">01</option> <option value="02">02</option> <option value="03">03</option> <option value="04">04</option> <option value="05">05</option> <option value="06">06</option> <option value="07">07</option> <option value="08">08</option> <option value="09">09</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> </select> 月&nbsp;/&nbsp; <select class="ui-select" name="" id="ui-select-year"> <option value="">选择</option> <option value="2014">2014</option> <option value="2015">2015</option> <option value="2016">2016</option> <option value="2017">2017</option> <option value="2018">2018</option> <option value="2019">2019</option> <option value="2020">2020</option> <option value="2021">2021</option> <option value="2022">2022</option> <option value="2023">2023</option> <option value="2024">2024</option> <option value="2025">2025</option> </select> 年 </span>
+                                                <span class="ml10" id="unEditor-validity"></span>
+                                                <span class="font-red ml10" id="font-red-validity"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line" id="quick-form-cvv2">
+                                            <label class="ui-form-label">卡验证码</label>
+                                            <div class="ui-form-group" id="ui-form-group-cvv2">
+                                                <input type="password" class="ui-input bw-q-input-auth" id="ui-input-cvv2" maxlength="3" placeholder="卡后3位数" autocomplete="off" />
+                                                <span class="ml10" id="unEditor-cvv2"></span>
+                                                <span class="font-red ml10" id="font-red-cvv2"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">姓名</label>
+                                            <div class="ui-form-group" id="ui-form-group-holderName">
+                                                <input type="text" class="ui-input bw-q-input-name j_name_list" id="ui-input-holderName" authed="false" userrealuserinfo="0" defaultvalue="" maxlength="20" autocomplete="off" />
+                                                <span class="ml10" id="unEditor-holderName"></span>
+                                                <a class="ml10" id="useOtherName" style="cursor:pointer;display:none;" onclick="payBankcard.quickToOtherUser()">使用其他用户</a>
+                                                <span class="font-red ml10" id="font-red-holderName"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">身份证</label>
+                                            <div class="ui-form-group" id="ui-form-group-holderId">
+                                                <input type="text" class="ui-input j_id_list" id="ui-input-holderId" defaultvalue="" maxlength="18" autocomplete="off" />
+                                                <span class="ml10" id="unEditor-holderId"></span>
+                                                <span class="font-red ml10" id="font-red-holderId"></span>
+                                            </div>
+                                        </div>
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">手机号</label>
+                                            <div class="ui-form-group" id="ui-form-group-phone">
+                                                <input type="text" class="ui-input bw-q-input-phone" id="ui-input-phone" maxlength="11" placeholder="银行存留号码" autocomplete="off" />
+                                                <span class="ml10" id="unEditor-phone"></span>
+                                                <span class="font-red ml10" id="font-red-phone"></span>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="ui-input-unboundPhoneVerifyCode" class="ui-input bw-q-input-msg mr5" maxlength="6" autocomplete="off" />
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">&nbsp;</label>
+                                            <div class="ui-form-group">
+                                                <i class="ui-checkbox"> <em class="selected"></em> </i>
+                                                <a class="font-black" href="http://help.jd.com/help/question-588.html" target="_blank">《京东快捷支付相关协议》</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 快捷支付 表单 end -->
+                                <input id="quickpayToken" name="quickpayToken" type="hidden" value="" autocomplete="off" />
+                                <input id="payAgencyCode" name="payAgencyCode" type="hidden" value="" autocomplete="off" />
+                            </div>
+                            <!-- 快捷支付 end -->
+                            <!-- 网银支付 -->
+                            <div class="bw-tab-content" data-widget="tab-content" id="normalPayCardDiv" style="display:none">
+                                <!-- 支付银行列表 -->
+                                <div class="payment-list j_eBankList" id="ebankPaymentListDiv">
+                                    <ul class="pl-wrap">
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-icbc" onclick="payBankcard.selectedEBank('147','ICBC', '1')"> <span class="bank-logo" id="bank-icbc">工商银行</span> <input type="hidden" id="success-icbc" value="工商银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_ICBC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_ICBC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-ccb" onclick="payBankcard.selectedEBank('147','CCB', '1')"> <span class="bank-logo" id="bank-ccb">建设银行</span> <input type="hidden" id="success-ccb" value="建设银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_CCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-cmb" onclick="payBankcard.selectedEBank('147','CMB', '1')"> <span class="bank-logo" id="bank-cmb">招商银行</span> <input type="hidden" id="success-cmb" value="招商银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_CMB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CMB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-abc" onclick="payBankcard.selectedEBank('147','ABC', '1')"> <span class="bank-logo" id="bank-abc">农业银行</span> <input type="hidden" id="success-abc" value="农业银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_ABC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_ABC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-bcom" onclick="payBankcard.selectedEBank('147','BCOM', '1')"> <span class="bank-logo" id="bank-bcom">中国交通银行</span> <input type="hidden" id="success-bcom" value="中国交通银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_BCOM" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_BCOM" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-gdb" onclick="payBankcard.selectedEBank('147','GDB', '1')"> <span class="bank-logo" id="bank-gdb">广发银行</span> <input type="hidden" id="success-gdb" value="广发银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_GDB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_GDB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-boc" onclick="payBankcard.selectedEBank('147','BOC', '1')"> <span class="bank-logo" id="bank-boc">中国银行</span> <input type="hidden" id="success-boc" value="中国银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_BOC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_BOC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-cmbc" onclick="payBankcard.selectedEBank('147','CMBC', '1')"> <span class="bank-logo" id="bank-cmbc">中国民生银行</span> <input type="hidden" id="success-cmbc" value="中国民生银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_CMBC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CMBC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-hxb" onclick="payBankcard.selectedEBank('147','HXB', '1')"> <span class="bank-logo" id="bank-hxb">华夏银行</span> <input type="hidden" id="success-hxb" value="华夏银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_HXB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_HXB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-cib" onclick="payBankcard.selectedEBank('147','CIB', '1')"> <span class="bank-logo" id="bank-cib">兴业银行</span> <input type="hidden" id="success-cib" value="兴业银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_CIB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CIB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item" clstag="payment|keycount|bank|c-ceb" onclick="payBankcard.selectedEBank('147','CEB', '1')"> <span class="bank-logo" id="bank-ceb">中国光大银行</span> <input type="hidden" id="success-ceb" value="中国光大银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_CEB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CEB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-post" onclick="payBankcard.selectedEBank('147','POST', '1')"> <span class="bank-logo" id="bank-post">邮政储蓄</span> <input type="hidden" id="success-post" value="邮政储蓄" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_POST" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_POST" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-citic" onclick="payBankcard.selectedEBank('147','CITIC', '1')"> <span class="bank-logo" id="bank-citic">中信银行</span> <input type="hidden" id="success-citic" value="中信银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_CITIC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CITIC" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-spdb" onclick="payBankcard.selectedEBank('147','SPDB', '1')"> <span class="bank-logo" id="bank-spdb">浦东发展银行</span> <input type="hidden" id="success-spdb" value="浦东发展银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_SPDB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_SPDB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-sdb" onclick="payBankcard.selectedEBank('050','SDB', '1')"> <span class="bank-logo" id="bank-sdb">深圳发展银行</span> <input type="hidden" id="success-sdb" value="深圳发展银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_SDB" type="hidden" value="{'agencyCode':'050','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_SDB" type="hidden" value="{'agencyCode':'050','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-bob" onclick="payBankcard.selectedEBank('147','BOB', '1')"> <span class="bank-logo" id="bank-bob">北京银行</span> <input type="hidden" id="success-bob" value="北京银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_BOB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_BOB" type="hidden" value="{'agencyCode':'050','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-cbhb" onclick="payBankcard.selectedEBank('050','CBHB', '1')"> <span class="bank-logo" id="bank-cbhb">渤海银行</span> <input type="hidden" id="success-cbhb" value="渤海银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_CBHB" type="hidden" value="{'agencyCode':'050','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CBHB" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-pab" onclick="payBankcard.selectedEBank('147','PAB', '1')"> <span class="bank-logo" id="bank-pab">平安银行</span> <input type="hidden" id="success-pab" value="平安银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_PAB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_PAB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-njcb" onclick="payBankcard.selectedEBank('147','NJCB', '1')"> <span class="bank-logo" id="bank-njcb">南京银行</span> <input type="hidden" id="success-njcb" value="南京银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_NJCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_NJCB" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-hzb" onclick="payBankcard.selectedEBank('147','HZB', '1')"> <span class="bank-logo" id="bank-hzb">杭州银行</span> <input type="hidden" id="success-hzb" value="杭州银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_HZB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_HZB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-shb" onclick="payBankcard.selectedEBank('147','SHB', '1')"> <span class="bank-logo" id="bank-shb">上海银行</span> <input type="hidden" id="success-shb" value="上海银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_SHB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_SHB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-srcb" onclick="payBankcard.selectedEBank('147','SRCB', '1')"> <span class="bank-logo" id="bank-srcb">上海农商行</span> <input type="hidden" id="success-srcb" value="上海农商行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_SRCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_SRCB" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-bocd" onclick="payBankcard.selectedEBank('147','BOCD', '1')"> <span class="bank-logo" id="bank-bocd">成都银行</span> <input type="hidden" id="success-bocd" value="成都银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_BOCD" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_BOCD" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-cqrcb" onclick="payBankcard.selectedEBank('147','CQRCB', '1')"> <span class="bank-logo" id="bank-cqrcb">重庆农村商业银行</span> <input type="hidden" id="success-cqrcb" value="重庆农村商业银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_CQRCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_CQRCB" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-boxm" onclick="payBankcard.selectedEBank('147','BOXM', '1')"> <span class="bank-logo" id="bank-boxm">厦门银行</span> <input type="hidden" id="success-boxm" value="厦门银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_BOXM" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_BOXM" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-qdccb" onclick="payBankcard.selectedEBank('147','QDCCB', '1')"> <span class="bank-logo" id="bank-qdccb">青岛银行</span> <input type="hidden" id="success-qdccb" value="青岛银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_QDCCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_QDCCB" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-bjrcb" onclick="payBankcard.selectedEBank('147','BJRCB', '1')"> <span class="bank-logo" id="bank-bjrcb">北京农村商业银行</span> <input type="hidden" id="success-bjrcb" value="北京农村商业银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡 </em> <input id="normalDebit_BJRCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_BJRCB" type="hidden" value="" autocomplete="off" /> </li>
+                                        <li class="pl-item hide" clstag="payment|keycount|bank|c-nbcb" onclick="payBankcard.selectedEBank('147','NBCB', '1')"> <span class="bank-logo" id="bank-nbcb">宁波银行</span> <input type="hidden" id="success-nbcb" value="宁波银行" autocomplete="off" /> <em class="pl-i-info"> 支持：储蓄卡&nbsp;&nbsp;信用卡 </em> <input id="normalDebit_NBCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'1','activityId':0}" autocomplete="off" /> <input id="normalCredit_NBCB" type="hidden" value="{'agencyCode':'147','cardTypeCode':'2','activityId':0}" autocomplete="off" /> </li>
+                                        <li class="pl-more j_showBankMore" id="j_showBankLi"> <span>更多银行</span> </li>
+                                    </ul>
+                                    <div class="bw-more-unionpay">
+                                        如果以上没有您需要的银行，请使用&nbsp;
+                                        <a href="javascript:void(0)" onclick="unionPaySubmit();">银联在线支付</a>
+                                    </div>
+                                </div>
+                                <script>
+                                    //默认展示7个网银支付的银行，其他银行默认隐藏，点击 更多银行再展示
+                                    $(function(){
+                                        var n_ul = $("#ebankPaymentListDiv").find("ul");
+                                        var n_lis=n_ul.children();
+                                        if(n_lis.length>11){
+                                            for(var i=0;i<n_lis.length;i++){
+                                                if(i>=11){
+                                                    if(n_lis[i].id !="j_showBankLi"){
+                                                        n_lis[i].className =n_lis[i].className + " hide";
+                                                    }
+                                                } else{
+                                                    if(n_lis[i].id !="j_showBankLi"){
+                                                        n_lis[i].className =n_lis[i].className;
+                                                    }
+                                                }
+                                            }
+                                        } else{
+                                            $("#ebankPaymentListDiv").find(".j_showBankMore").hide();
+                                        }
+                                    });
+                                </script>
+                                <!-- 支付银行列表 end -->
+                                <!-- 网银确认支付 -->
+                                <div class="bw-ebank j_eBankEdit" style="display:none;" id="normalPayCardConfirmDiv">
+                                    <div class="ui-form">
+                                        <!-- 网银支付 -->
+                                        <div class="ui-form-line">
+                                            <label class="ui-form-label">付款银行</label>
+                                            <div class="ui-form-group">
+                                                <div class="clearfix">
+                                                    <!-- 已选银行 -->
+                                                    <div class="bank-selected fl clearfix">
+                                                        <input type="hidden" name="seletedAgencyCode" id="seletedAgencyCode" autocomplete="off" />
+                                                        <span class="bank-logo"></span>
+                                                    </div>
+                                                    <a class="fl ml10 bw-ebank-repeat" href="javascript:;" onclick="gradedPay('1')" id="onGradedPay"><i></i>使用多次支付</a>
+                                                    <a class="fl ml10 bw-return" href="javascript:;" onclick="exchangeOtherBankPay(2)"> <i class="ui-icon ui-icon-return mr5"></i> 选择其他银行</a>
+                                                    <!-- 已选银行 end -->
+                                                </div>
+                                                <div class="bw-bank-tips">
+                                                    <span class="font-red" id="ebank_promptInfo"></span>
+                                                </div>
+                                                <div class="bw-q-switch" id="ebank-cardtype">
+                                                    <span class="mr20 ui-radio-wrap" id="nordebit-radio"> <i class="ui-radio "><em class=""></em></i> 储蓄卡 </span>
+                                                    <span class="ui-radio-wrap" id="norcredit-radio"> <i class="ui-radio "><em class=""></em></i> 信用卡 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 网银支付 end -->
+                                        <!-- 多次支付 -->
+                                        <div class="ui-form-line hide" id="gradedPayDiv">
+                                            <label class="ui-form-label">本次支付金额</label>
+                                            <div class="ui-form-group">
+                                                <div>
+                                                    <input type="text" class="ui-input" style="width: 60px;" name="gradedPayInput" onblur="validateAmount()" />
+                                                    <span>元，剩余需要支付 ￥</span>
+                                                    <span class="font-red" id="shouldEbankPay"></span>
+                                                    <span>元</span>
+                                                    <a href="javascript:;" onclick="gradedPay('0')" id="cancelGradedPay">取消使用多次支付</a>
+                                                </div>
+                                                <div>
+                                                    <span class="font-red" id="shouldPayError">本次支付金额不可大于剩余支付金额</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 多次支付 end -->
+                                    </div>
+                                </div>
+                                <!-- 网银确认支付 end -->
+                            </div>
+                            <!-- 网银支付 end -->
+                        </div>
+                        <!-- bank-wrap 银行卡选择数据录入区域 end -->
+                    </div>
+                    <!-- 银行卡 区域 end -->
+                </div>
+                <input id="jd_prefs" autocomplete="off" type="hidden" value="" />
+            </div>
+            <!-- paybox 银行卡 end -->
+            <!-- pay-verify 支付验证提交 -->
+            <div class="pay-verify" id="pay-verify-typeCredit">
+                <div class="pv-line" id="pv-line-password" style="display:none">
+                    <input type="password" placeholder="请输入京东支付密码" id="payPwd" name="payPwd" class="ui-input pv-input-password" />
+                    <span class="font-red ml10" id="showErrMsgSpan"></span>
+                    <a href="http://safe.jd.com/user/paymentpassword/getBackPassword.action" class="ml10" target="_blank">忘记支付密码？</a>
+                </div>
+                <div class="p-v-line" id="noOpenPwdDiv" style="display:none">
+                    <span class="font-red">您尚未开通支付密码点击，<a target="_blank" href="http://safe.jd.com/user/paymentpassword/safetyCenter.action">立即开通</a>&nbsp;即可消费</span>
+                </div>
+                <div class="pv-msg" id="userTipSpanDiv" style="display:none">
+                    <strong class="font-red" id="userTipSpan"></strong>
+                </div>
+                <div class="pv-button" id="loadingDiv" style="display:none">
+                    <input class="ui-button ui-button-XL ui-button-XL-loading" type="submit" value="加载中" />
+                </div>
+                <div class="pv-button" id="pv-button-submitPay">
+                    <input type="submit" value="立即支付" id="paySubmit" class="ui-button ui-button-XL disable" onclick="combinSubmitPay()" clstag="jr|keycount|cashier_jd|cashier_jd_ljzf" />
+                    <input type="hidden" autocomplete="off" name="remainShouldPayAmount" id="remainShouldPayAmount" value="47.90" />
+                    <span class="font-red ml10" id="submitPayError">请选择银行支付</span>
+                    <a href="javascript:;" id="errorReBind" style="display: none" onclick="payBankcard.reBind()">重新绑定</a>
+                    <br />
+                    <span class="pv-msg" id="remainShouldPayMsgDiv" style="display: none;"> <strong class="font-red" id="">您还差<span id="remainShouldPayAmountSpan">47.90</span>元，请选择其他支付组合方式。</strong> </span>
+                </div>
+            </div>
+            <script type="text/javascript">
+                // 全部银行卡 展开
+                $('.j_bankArea').slideDown(300);
+                //2015-2-11 18:48:17  短信验证码弹框 该div不需要
+                //   $("#pv-line-phoneCode").hide();
+            </script>
+            <div class="payment-column ">
+                &nbsp;
+            </div>
+            <div class="payment-change payment-change-wangyin">
+                <div class="pc-wrap clearfix">
+                    <a class="pc-wangyin j_pcWangyin" href="javascript:;" onclick="wangYinjia()" id="showlayerButton" clstag="jr|keycount|cashier_jd|cashier_jd_wyj1"> <i class="pc-w-icon"></i> <i class="ui-icon ui-icon-recommend"></i> <em class="pc-w-describe">京东旗下&nbsp; 快捷支付</em> <span class="ui-button ui-button-blue">立即支付</span> <span class="pc-w-promotion font-red  mr20 fr" style="display: block;">满18元100%得现金红包，最高得88元</span> <em class="pc-w-price" style="display: none;">支付&nbsp;<strong>47.90</strong>元</em> <span class="clr"></span> </a>
+                </div>
+            </div>
+            <!-- pay-verify 支付验证提交 end -->
+            <!-- payment-change 变更支付方式 -->
+            <div class="payment-column">
+                &nbsp;
+            </div>
+            <div class="payment-change">
+                <div class="pc-wrap clearfix">
+                    <div class="pc-w-left">
+                        <a href="//cashier.jd.com/payment/pay.action?id=10314273943&amp;total=47.90&amp;companyid=10&amp;OrderType=0&amp;toType=10&amp;key=271328133E157928246A274EEBE42ABB07DB5906926829367650F12F2FE3CA1C&amp;jump=other&amp;expires=" clstag="jr|keycount|cashier_jd|cashier_jd_zfpt">微信支付</a>
+                        <span>|</span>
+                        <a href="//cashier.jd.com/payment/pay.action?id=10314273943&amp;total=47.90&amp;companyid=10&amp;OrderType=0&amp;toType=10&amp;key=271328133E157928246A274EEBE42ABB07DB5906926829367650F12F2FE3CA1C&amp;jump=other&amp;expires=" clstag="jr|keycount|cashier_jd|cashier_jd_zfpt">银联在线支付</a>
+                        <span>|</span>
+                        <a class="pc-item-jdpay" href="//cashier.jd.com/payment/pay.action?id=10314273943&amp;total=47.90&amp;companyid=10&amp;OrderType=0&amp;toType=10&amp;key=271328133E157928246A274EEBE42ABB07DB5906926829367650F12F2FE3CA1C&amp;jump=other&amp;expires=" clstag="jr|keycount|cashier_jd|cashier_jd_zfpt">京东钱包 </a>
+                        <span>|</span>
+                        <a class="pc-item-jdpay" href="javascript:;" id="jdQianBaoscan" onclick="openScanPay();">扫一扫 <i class="item-icon"></i> <i class="item-pop"> <img src="//cashier.jd.com/image/getjdpayImage.action?orderId=10314273943&amp;type=0&amp;PassKey=E7B574D57C78085DA46F823495870BA6" width="100" height="100" /> <b>京东钱包扫一扫<br />首单，立减10元</b> </i> </a>
+                    </div>
+                </div>
+            </div>
+            <!-- payment-change 变更支付方式 end -->
+        </div>
+        <!-- payment 支付方式选择 end -->
+    </div>
+</div>
+<!-- 网银支付弹窗 成功 -->
+<div id="wangyinPaySuccess" class="ui-modal wangyin-modal-success">
+    <div class="ui-modal-inner">
+        <!-- head -->
+        <div class="ui-modal-head">
+            <h3 class="um-h-title">登录网上银行支付</h3>
+            <a class="um-h-close" onclick="javascript:window.location.reload()"></a>
+        </div>
+        <!-- content -->
+        <div class="ui-modal-content">
+            <!-- 网银支付完成 成功 -->
+            <!-- 网银支付完成 成功 end -->
+            <div class="wangyin-payed-success">
+                <div class="mb20">
+                    请您在新打开的网上银行页面进行支付，支付完成前请不要关闭该窗口
+                </div>
+                <div class="wps-button mb20">
+                    <a class="ui-button ui-button-gray mr10" href="http://order.jd.com/center/itemPage.action?orderid=10314273943&amp;PassKey=8999D09FC52CA385846BDD0C70163C1D" clstag="jr|keycount|cashier_jd|cashier_jd_wyzftc_ywczf">已完成支付</a> &nbsp;
+                    <a class="ui-button ui-button-gray" href="http://help.jd.com/help/question-68.html" target="_blank" clstag="jr|keycount|cashier_jd|cashier_jd_wyzftc_zfydwt">支付遇到问题</a>
+                </div>
+                <div class="wps-other">
+                    <div class="wps-o-left">
+                        <div class="wps-o-line mb10">
+                            <span id="options">建议您选择</span>
+                            <a class="wps-o-bank" onclick="toQuickPayForm()" id="quickBankPaySpan">中国工商银行快捷支付</a>
+                        </div>
+                        <div class="wps-o-line">
+                            <a href="//cashier.jd.com/payment/pay.action?id=10314273943&amp;total=47.90&amp;companyid=10&amp;OrderType=0&amp;toType=10&amp;key=271328133E157928246A274EEBE42ABB07DB5906926829367650F12F2FE3CA1C&amp;expires=" clstag="jr|keycount|cashier_jd|cashier_jd_wyzftc_xzqtzf">选择其他支付方式</a>
+                        </div>
+                    </div>
+                    <div class="wps-o-right">
+                        <div class="wps-o-qrcode">
+                            <div class="wps-o-qrcode-img"></div>
+                            <div class="wps-o-qrcode-text">
+                                手机随时跟踪订单
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 网银支付弹窗 成功 end -->
+<!-- 虚拟支付结果页 -->
+<div id="virtualResultDiv" class="ui-modal ui-modal-error wangyin-modal">
+
+    <div class="ui-modal-inner">
+        <div class="ui-modal-head">
+            <h3 class="um-h-title">虚拟组合支付结果</h3>
+        </div>
+        <!-- content pay-info-list-->
+        <div class="ui-modal-content">
+            <div class="wangyin-payed">
+                <ul class="pay-ilist" id="virtualPayResultUl">
+                </ul>
+                <div class="pay-count">
+                    剩余
+                    <span id="remainAmountSpan"></span>元未支付
+                </div>
+                <div class="pay-lbtn">
+                    <a href="javascript:void(0)" onclick="rePay()" class="ui-button ui-button-XL" clstag="jr|keycount|cashier_jd|cashier_jd_zhzftc_cxzfsy">重新支付剩余金额</a>如果未支付剩余款项，已支付金额将在24小时候原路退还
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 网银支付弹窗 失败 end -->
+<div id="verificationModal" class="ui-modal verification-modal">
+    <div class="ui-modal-inner">
+        <!-- head -->
+        <div class="ui-modal-head">
+            <h3 class="um-h-title">
+                <div id="cardPaySum"></div></h3>
+            <a class="um-h-close" id="messageClose"></a>
+        </div>
+        <!-- content -->
+        <div class="ui-modal-content">
+            <div class="verification-content">
+                <div class="vc-amount">
+                    <div>
+                        请输入短信验证码
+                    </div>
+                    <div class="vc-a-phone">
+                        <span id="m15_openBindPhone">（已发送至 ）</span>
+                        <i class="ui-icon ui-icon-info ml5 j_uiTips" data-tips="&lt;strong&gt;手机号码有误？&lt;/strong&gt;&lt;br /&gt;可按以下步骤依次确认解决问题：&lt;br /&gt;1. 请确认该预留手机号是当前使用手机号&lt;br /&gt;2. 若银行预留手机号已停用，请联系银行修改&lt;br /&gt;3. 银行预留手机号码修改完毕后请&lt;a href='javascript:;' onclick='payBankcard.reBind()'&gt;重新绑定&lt;/a&gt;&lt;br /&gt;4. 获取更多帮助，可以联系&lt;a target='_blank' href='http://chat7.jd.com/jdchat/custom.action'&gt;在线客服&lt;/a&gt;"></i>
+                    </div>
+                </div>
+                <div class="vc-number">
+                    <span class="vc-n-grid"> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> </span>
+                    <input type="text" class="vc-n-input j_modalAuthInput" maxlength="6" id="phoneVer_modalAuthInput" />
+                    <div class="vc-n-block"></div>
+                    <div class="vc-n-error">
+                        <span id="messageError"></span>&nbsp;
+                        <a href="javascript:void(0);" id="clearMessage">清空</a>
+                    </div>
+                </div>
+                <div class="vc-operations">
+                    <span class="vc-o-left"> <a class="ui-button ui-button-gray j_verificationCount" id="ui-button-gray-phoneVerifyCode" href="javascript:;" onclick="quickGetPhontVerifyCode();"></a> </span>
+                    <span class="vc-o-right"> <a class="vc-close j_modalClose" href="javascript:;" id="phoneJ_modalClose">关闭</a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 风控拦截后短信验证码 -->
+<div id="MsgModal" class="ui-modal verification-modal">
+    <div class="ui-modal-inner">
+        <!-- head -->
+        <div class="ui-modal-head">
+            <h3 class="um-h-title">输入短信验证码<span id="m15_openBindPhone_fk">（已发送至 ）</span><i class="ui-icon ui-icon-info ml5 j_uiTips" data-tips="&lt;strong&gt;手机号码有误？&lt;/strong&gt;&lt;br /&gt;可按以下步骤依次确认解决问题：&lt;br /&gt;1. 请确认该预留手机号是当前使用手机号&lt;br /&gt;2. 获取更多帮助，可以联系&lt;a target='_blank' href='http://chat7.jd.com/jdchat/custom.action'&gt;在线客服&lt;/a&gt;"></i></h3>
+            <a class="um-h-close" id="messageClose_fk"></a>
+        </div>
+        <!-- content -->
+        <div class="ui-modal-content">
+            <div class="verification-content">
+                <!--    <div class="vc-amount" id="paySum_fk"></div>    -->
+                <div class="vc-number">
+                    <span class="vc-n-grid"> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> <span class="grid-item"></span> </span>
+                    <input type="text" class="vc-n-input" maxlength="6" id="phoneVer_modalAuthInput_fk" />
+                    <div class="vc-n-block"></div>
+                    <div class="vc-n-error">
+                        <span id="messageError_fk"></span>&nbsp;
+                        <a href="javascript:void(0);" id="clearMessage_fk">清空</a>
+                    </div>
+                </div>
+                <div class="vc-operations">
+                    <span class="vc-o-left"> <a class="ui-button ui-button-gray" id="ui-button-gray-phoneVerifyCode_fk" href="javascript:;" onclick="fkReGetPhontVerifyCode();"></a> </span>
+                    <span class="vc-o-right"> <a class="vc-close j_modalClose" href="javascript:;" id="phoneJ_modalClose_fk">关闭</a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="p-footer">
+    <div class="pf-wrap w">
+        <div class="pf-line">
+            <span class="pf-l-copyright">Copyright &copy; 2004-2015 京东JD.com 版权所有</span>
+            <img width="185" height="20" src="../misc/css/i/footer-auth.png" />
+        </div>
+    </div>
+</div>
+<div class="feedback">
+    <a target="_blank" href="http://ur.jr.jd.com/survey/show?id=109&amp;u=http://www.jd.com?orderId=10314273943"></a>
+</div>
+
+
+
+<!-- Google Tag Manager -->
+
+<form name="payWangyinJarForm" id="payWangyinJarForm" action="/payment/wangYinJiaAction.action" method="post" target="iframeLayer" style="display:none">
+    <input type="hidden" name="payInfoStr" value="ddc23aca58c869dd0788ea54289668b73585858362042a51503a11a324f1b6d4286ee735fb5982012981e6872d5b39326d85d5075f4d95c199df4bcb00497ef5553a9c98ea1bd1f22a879ec43c8a624f1a015274690832efeb2025f306c275a4112ea15c55b97fbe5a28abcd8afe700190632c8ce757cdd8c69250600256b5f357305d8380f42389615ece761b629c56bb94f23c46a04c6e86df8e3700e09a8ecf4cb802bf16402afc5f1cf0a7537f7a297505154fd6bf150f70e4a4baa79189a09e6fb283679a659968de111f3d9f835978d39656ca8f5bc2f9ae83a4b792b8872bac4d02a9264d4f835ea5c83f4ade1ce5d33d51a1f7cd5f07e7274118df2b" />
+</form>
+<form name="J_scanPayForm" id="J_scanPayForm" action="https://tcashier.jdpay.com/scanPay.htm" method="post" target="iframeLayer" style="display:none">
+    <input type="hidden" name="orderid" value="10314273943" />
+</form>
+<iframe id="iframeLayer" frameborder="0" name="iframeLayer" class="iframeLayer" allowtransparency="true" style="display:none;position:absolute; z-index:999; width:100%; height:100%; top: 0px; left: 0px; right:0; bottom: 0; background:url('/misc/images/loading.gif') center center no-repeat;" src=""></iframe>
+<!-- 生成全局命名空间 window.WYPLUS -->
+
+</body>
+</html>

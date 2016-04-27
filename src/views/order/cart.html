@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>我的购物车 - 京东商城</title>
+    <link type="text/css" rel="stylesheet" href="/css/service.css" />
+    <link rel="stylesheet" type="text/css" href="/css/no-login.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/p-detect.css"  />
+    <link charset="utf-8" rel="stylesheet" href="/css/area.css" />
+
+    <script src="/jslib/jquery-1.7.2.min.js"></script>
+    <script src="/js/cart.js"></script>
+
+    <style type="text/css">.fixed-bottom{position:fixed;bottom:0px;z-index:999}</style>
+</head>
+<body>
+<% include ../common/topHeader.html%>
+
+<div id="o-header-2013">
+    <div id="header-2013" style="display:none;"></div>
+</div>
+<div class="w w1 header clearfix">
+    <div id="logo">
+        <a href="http://www.jd.com/" class="link1"><img src="//misc.360buyimg.com/lib/img/e/logo-201305.png" alt="京东商城" /></a>
+        <a href="#none" class="link2"><b></b>购物车</a>
+    </div>
+    <div class="cart-search">
+        <div class="form">
+            <input id="key" type="text" class="itxt" autocomplete="off" accesskey="s" style="color: rgb(153, 153, 153);" />
+            <input type="button" class="button" value="搜索" clstag="clickcart|keycount|xincart|cart_search" onclick="javascript:void(0);" />
+        </div>
+    </div>
+</div>
+<!-- main -->
+<div id="container" class="cart">
+    <%if(carts.length >0){%>
+    <div class="w">
+
+        <div class="cart-filter-bar">
+            <ul class="switch-cart">
+                <li class="switch-cart-item curr"> <a href="#none"> <em>全部商品</em> <span class="number">1</span> </a> </li>
+            </ul>
+            <div class="cart-store">
+                <input id="hiddenLocationId" type="hidden" />
+                <input id="hiddenLocation" type="hidden" />
+                <span class="label">配送至：</span>
+                <div id="jdarea" class="ui-area-wrap">
+                    <div class="ui-area-text-wrap">
+                        <div class="ui-area-text" data-id="19-1601-3633" title="广东广州市天河区">
+                            广东广州市天河区
+                        </div>
+                        <b> </b>
+                    </div>
+                    <div class="ui-area-content-wrap">
+                        <div class="ui-area-tab">
+                            <a class="ui-switchable-item" data-id="19"><em>广东</em><i></i></a>
+                            <a class="ui-switchable-item" data-id="1601"><em>广州市</em><i></i></a>
+                            <a class="ui-switchable-item ui-area-current" data-id="3633"><em>天河区</em><i></i></a>
+                        </div>
+                        <div class="ui-area-content" clstag="clickcart|keycount|xincart|cart_changeArea">
+                            <div style="display: none;" class="ui-switchable-panel" data-index="0">
+                                <ul class="ui-area-content-list">
+                                    <li><a data-id="1" href="javascript:void(0)">北京</a></li>
+                                    <li><a data-id="2" href="javascript:void(0)">上海</a></li>
+                                    <li><a data-id="3" href="javascript:void(0)">天津</a></li>
+                                    <li><a data-id="4" href="javascript:void(0)">重庆</a></li>
+                                    <li><a data-id="5" href="javascript:void(0)">河北</a></li>
+                                    <li><a data-id="6" href="javascript:void(0)">山西</a></li>
+                                    <li><a data-id="7" href="javascript:void(0)">河南</a></li>
+                                    <li><a data-id="8" href="javascript:void(0)">辽宁</a></li>
+                                    <li><a data-id="9" href="javascript:void(0)">吉林</a></li>
+                                    <li><a data-id="10" href="javascript:void(0)">黑龙江</a></li>
+                                    <li><a data-id="11" href="javascript:void(0)">内蒙古</a></li>
+                                    <li><a data-id="12" href="javascript:void(0)">江苏</a></li>
+                                    <li><a data-id="13" href="javascript:void(0)">山东</a></li>
+                                    <li><a data-id="14" href="javascript:void(0)">安徽</a></li>
+                                    <li><a data-id="15" href="javascript:void(0)">浙江</a></li>
+                                    <li><a data-id="16" href="javascript:void(0)">福建</a></li>
+                                    <li><a data-id="17" href="javascript:void(0)">湖北</a></li>
+                                    <li><a data-id="18" href="javascript:void(0)">湖南</a></li>
+                                    <li><a data-id="19" href="javascript:void(0)">广东</a></li>
+                                    <li><a data-id="20" href="javascript:void(0)">广西</a></li>
+                                    <li><a data-id="21" href="javascript:void(0)">江西</a></li>
+                                    <li><a data-id="22" href="javascript:void(0)">四川</a></li>
+                                    <li><a data-id="23" href="javascript:void(0)">海南</a></li>
+                                    <li><a data-id="24" href="javascript:void(0)">贵州</a></li>
+                                    <li><a data-id="25" href="javascript:void(0)">云南</a></li>
+                                    <li><a data-id="26" href="javascript:void(0)">西藏</a></li>
+                                    <li><a data-id="27" href="javascript:void(0)">陕西</a></li>
+                                    <li><a data-id="28" href="javascript:void(0)">甘肃</a></li>
+                                    <li><a data-id="29" href="javascript:void(0)">青海</a></li>
+                                    <li><a data-id="30" href="javascript:void(0)">宁夏</a></li>
+                                    <li><a data-id="31" href="javascript:void(0)">新疆</a></li>
+                                    <li><a data-id="32" href="javascript:void(0)">台湾</a></li>
+                                    <li><a data-id="42" href="javascript:void(0)">香港</a></li>
+                                    <li><a data-id="43" href="javascript:void(0)">澳门</a></li>
+                                    <li><a data-id="84" href="javascript:void(0)">钓鱼岛</a></li>
+                                </ul>
+                            </div>
+                            <div style="display: none;" class="ui-switchable-panel" data-index="1">
+                                <ul class="ui-area-content-list">
+                                    <li><a data-id="1601" href="javascript:void(0)">广州市</a></li>
+                                    <li><a data-id="1607" href="javascript:void(0)">深圳市</a></li>
+                                    <li><a data-id="1609" href="javascript:void(0)">珠海市</a></li>
+                                    <li><a data-id="1611" href="javascript:void(0)">汕头市</a></li>
+                                    <li><a data-id="1617" href="javascript:void(0)">韶关市</a></li>
+                                    <li><a data-id="1627" href="javascript:void(0)">河源市</a></li>
+                                    <li><a data-id="1634" href="javascript:void(0)">梅州市</a></li>
+                                    <li><a data-id="1709" href="javascript:void(0)">揭阳市</a></li>
+                                    <li><a data-id="1643" href="javascript:void(0)">惠州市</a></li>
+                                    <li><a data-id="1650" href="javascript:void(0)">汕尾市</a></li>
+                                    <li><a data-id="1655" href="javascript:void(0)">东莞市</a></li>
+                                    <li><a data-id="1657" href="javascript:void(0)">中山市</a></li>
+                                    <li><a data-id="1659" href="javascript:void(0)">江门市</a></li>
+                                    <li><a data-id="1666" href="javascript:void(0)">佛山市</a></li>
+                                    <li><a data-id="1672" href="javascript:void(0)">阳江市</a></li>
+                                    <li><a data-id="1677" href="javascript:void(0)">湛江市</a></li>
+                                    <li><a data-id="1684" href="javascript:void(0)">茂名市</a></li>
+                                    <li><a data-id="1690" href="javascript:void(0)">肇庆市</a></li>
+                                    <li><a data-id="1698" href="javascript:void(0)">云浮市</a></li>
+                                    <li><a data-id="1704" href="javascript:void(0)">清远市</a></li>
+                                    <li><a data-id="1705" href="javascript:void(0)">潮州市</a></li>
+                                </ul>
+                            </div>
+                            <div style="" class="ui-switchable-panel ui-switchable-panel-selected" data-index="2">
+                                <ul class="ui-area-content-list">
+                                    <li><a data-id="3633" href="javascript:void(0)">天河区</a></li>
+                                    <li><a data-id="3634" href="javascript:void(0)">海珠区</a></li>
+                                    <li><a data-id="3635" href="javascript:void(0)">荔湾区</a></li>
+                                    <li><a data-id="3637" href="javascript:void(0)">越秀区</a></li>
+                                    <li><a data-id="36953" href="javascript:void(0)">番禺区</a></li>
+                                    <li><a data-id="50256" href="javascript:void(0)">花都区</a></li>
+                                    <li><a data-id="50257" href="javascript:void(0)">萝岗区</a></li>
+                                    <li><a data-id="50258" href="javascript:void(0)">白云区</a></li>
+                                    <li><a data-id="50259" href="javascript:void(0)">南沙区</a></li>
+                                    <li><a data-id="50283" href="javascript:void(0)">黄埔区</a></li>
+                                    <li><a data-id="50284" href="javascript:void(0)">增城市</a></li>
+                                    <li><a data-id="50285" href="javascript:void(0)">从化市</a></li>
+                                    <li><a data-id="51091" href="javascript:void(0)">广州大学城</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+            <div class="w-line">
+                <div class="floater" style="width: 80px;"></div>
+            </div>
+            <div class="tab-con"></div>
+            <div class="tab-con hide"></div>
+        </div>
+
+    </div>
+    <div class="cart-warp">
+        <div class="w">
+            <div id="jd-cart">
+                <div class="cart-main">
+                    <div class="cart-thead">
+                        <div class="column t-checkbox">
+                            <div class="cart-checkbox">
+                                <input type="checkbox" checked="checked" id="toggle-checkboxes_up" name="toggle-checkboxes" class="jdcheckbox"/>
+                                <label class="checked" for="">勾选全部商品</label>
+                            </div> 全选
+                        </div>
+                        <div class="column t-goods">
+                            商品
+                        </div>
+                        <div class="column t-props"></div>
+                        <div class="column t-price">
+                            单价(元)
+                        </div>
+                        <div class="column t-quantity">
+                            数量
+                        </div>
+                        <div class="column t-sum">
+                            小计(元)
+                        </div>
+                        <div class="column t-action">
+                            操作
+                        </div>
+                    </div>
+                    <div id="cart-list">
+                        <input type="hidden" id="allSkuIds" value="1152042" />
+                        <input type="hidden" id="outSkus" value="" />
+                        <input type="hidden" id="isLogin" value="1" />
+                        <input type="hidden" id="isNoSearchStockState" value="0" />
+                        <input type="hidden" id="isNoDD" value="0" />
+                        <input type="hidden" id="isNoCoupon" value="0" />
+                        <input type="hidden" id="isFavoriteDowngrade" value="0" />
+                        <input type="hidden" id="hiddenLocationId" />
+                        <input type="hidden" id="hiddenLocation" />
+                        <input type="hidden" id="ids" value="1152042" />
+                        <!-- 修改数量之前的值 -->
+                        <input type="hidden" id="changeBeforeValue" value="" />
+                        <input type="hidden" id="changeBeforeId" value="" />
+                        <input type="hidden" value="1" id="checkedCartState" />
+                        <input type="hidden" value="" id="venderIds" />
+                        <div class="cart-item-list" id="cart-item-list-01">
+                            <div class="cart-tbody" id="vender_8888">
+                                <div class="shop">
+                                    <div class="cart-checkbox">
+                                        <input type="checkbox" checked="checked" name="checkShop" class="jdcheckbox" clstag="clickcart|keycount|xincart|cart_checkOn_shop" />
+                                        <label for="">勾选店铺内全部商品</label>
+                                    </div>
+                                    <span class="shop-txt"> <a class="shop-name self-shop-name" href="javascript:;" id="venderId_8888" clstag="clickcart|keycount|xincart|cart_shopNameJD">京东自营</a> </span>
+                                </div>
+                                <div class="item-list">
+                                    <!--单品-->
+                                    <!-- 单品-->
+                                    <% for(var i in carts){%>
+                                    <div class="item-single  item-item item-selected  " id="product_<%carts[i].goodsid%>">
+                                        <div class="item-form">
+                                            <div class="cell p-checkbox">
+                                                <div class="cart-checkbox">
+                                                    <!--单品-->
+                                                    <input type="checkbox" name="checkItem" value="<%=carts[i].id %>" checked="checked" class="jdcheckbox" />
+                                                    <label for="" class="checked">勾选商品</label>
+                                                    <span class="line-circle"></span>
+                                                </div>
+                                            </div>
+                                            <div class="cell p-goods">
+                                                <div class="goods-item">
+                                                    <div class="p-img">
+                                                        <a href="/product/detail?id=<%=carts[i].goodsid%>" target="_blank"><img alt="<%=carts[i].goodsname%>" src="<%=carts[i].goodsimg%>" /></a>
+                                                    </div>
+                                                    <div class="item-msg">
+                                                        <div class="p-name">
+                                                            <a href="/product/detail?id=<%=carts[i].goodsid%>" target="_blank"><%=carts[i].goodsname%></a>
+                                                        </div>
+                                                        <div class="p-extend">
+                                                            <span class="promise" _giftcard="giftcard_1152042"> </span>
+                 <span class="promise" _yanbao="yanbao_1152042_">
+                  <!--<i class="jd-service-icon"></i>
+								<a href="#none" class="ftx-03 jd-service" clstag="clickcart|keycount|xincart|cart_fuWu" data-tips="购买京东服务">购买京东服务</a>--> </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cell p-props p-props-new">
+                                                <div class="props-txt" title="125ml*20 礼盒装">
+                                                   <!-- 颜色：125ml*20 礼盒装-->
+                                                </div>
+                                            </div>
+                                            <div class="cell p-price">
+                                                <strong><%=carts[i].shopprice%></strong>
+                                            </div>
+                                            <div class="cell p-quantity">
+                                                <!--单品-->
+                                                <div class="quantity-form">
+                                                    <a href="javascript:decrement('<%=carts[i].id%>')"  class="decrement" id="decrement">-</a>
+                                                    <input type="text" class="itxt" value="<%=carts[i].goodsnum%>" id="changeQuantity" disabled style="background: #fff;" />
+                                                    <a href="javascript:increment('<%=carts[i].id%>')"  class="increment" id="increment">+</a>
+                                                </div>
+                                                <div class="ac ftx-03 quantity-txt" _stock="stock_1152042">
+                                                    <!--有货-->
+                                                </div>
+                                            </div>
+                                            <div class="cell p-sum">
+                                                <strong><%=parseFloat(carts[i].shopprice)*parseInt(carts[i].goodsnum)%></strong>
+                                            </div>
+                                            <div class="cell p-ops">
+                                                <!--单品-->
+                                                <a id="remove_<%=carts[i].goodsid%>" class="cart-remove" onclick="del('<%=carts[i].id%>')">删除</a>
+                                                <a href="javascript:void(0);" class="cart-follow" id="follow_8888_1152042_1">移到我的关注</a>
+                                            </div>
+                                        </div>
+                                        <div class="item-extra">
+                                        </div>
+                                        <div class="item-line"></div>
+                                    </div>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="cart-floatbar">
+                <div class="ui-ceilinglamp-1" style="width: 990px; height: 52px;">
+                    <div class="cart-toolbar" style="width: 988px; height: 50px;">
+                        <div class="toolbar-wrap">
+                            <div class="selected-item-list hide">
+                            </div>
+                            <div class="options-box">
+                                <div class="select-all">
+                                    <div class="cart-checkbox">
+                                        <input type="checkbox" checked="checked" id="toggle-checkboxes_down" name="toggle-checkboxes" class="jdcheckbox"  />
+                                        <label class="checked">勾选全部商品</label>
+                                    </div> 全选
+                                </div>
+                                <div class="operation">
+                                    <a href="#none" class="remove-batch">删除选中的商品</a>
+                                    <a href="#none" class="follow-batch" >移到我的关注</a>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="toolbar-right">
+                                    <div class="normal">
+                                        <div class="comm-right">
+                                            <div class="btn-area">
+                                                <a href="/order/order" class="submit-btn" onclick=""> 去结算<b></b></a>
+                                                <!-- <a href="javascript:void(0);" class="submit-btn submit-btn-disabled">
+                                                                  去结算<b></b></a> -->
+                                            </div>
+                                            <%
+                                            var total = 0;
+                                            for(var i in carts){
+                                            var num = parseInt(carts[i].goodsnum);
+                                            var price = parseFloat(carts[i].shopprice);
+                                            total += num*price;
+                                            }
+
+                                            %>
+                                            <div class="price-sum">
+                                                <div>
+                                                    <span class="txt">总价（不含运费）：</span>
+                                                    <span class="price sumPrice"><em>￥<%=total%></em></span>
+                                                    <br />
+                                                    <span class="txt">已节省：</span>
+                                                    <span class="price totalRePrice">-￥0.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="amount-sum">
+                                                已选择
+                                                <em>1</em>件商品
+                                                <b class="up"></b>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-removed">
+                <div class="r-tit">
+                    已删除商品，您可以重新购买或加关注：
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%}else{%>
+    <div class="w">
+        <div class="cart-empty">
+            <div class="message">
+                <ul>
+                    <li class="txt"> 购物车空空的哦~，去看看心仪的商品吧~ </li>
+                    <li> <a href="/" class="ftx-05"> 去购物&gt; </a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <%}%>
+
+    <div class="w">
+        <div id="c-tabs" data-widget="tabs">
+            <div class="tab-nav">
+                <ul>
+                    <li class="c-tabs-item curr" data-widget="tab-item"><h3>猜你喜欢</h3></li>
+                    <li class="c-tabs-item" data-widget="tab-item"><h3>精品推荐</h3></li>
+                    <li class="c-tabs-item" data-widget="tab-item"><h3>我的关注</h3></li>
+                    <li class="c-tabs-item" data-widget="tab-item"><h3>最近浏览的</h3></li>
+                </ul>
+            </div>
+            <div class="tab-con ui-switchable-panel-selected" id="guess-products" style="display: block;">
+                <div class="p-list" data-widget="tab-content">
+                    <a class="prev arrow-btns disabled" href="#none"></a>
+                    <a class="next arrow-btns" href="#none"></a>
+                    <div class="p-list-cont ui-switchable-body" style="position: relative;">
+                        <ul class="ui-switchable-panel-main" style="width: 3520px; left: 0px; position: absolute;">
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=963181$index=0$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=5d99e47f526a92ee8d5e67fb22478bac7898dc1a" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=963181$index=0$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=5d99e47f526a92ee8d5e67fb22478bac7898dc1a')" class="ui-switchable-panel ui-switchable-panel-selected" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/963181.html" target="_blank"><img width="130" height="130" data-src="//img11.360buyimg.com/n3/jfs/t1507/6/332275955/196319/e0cf03fc/557577a8Nd1fd2b15.jpg" alt="乐事无限薯片104g*3组合装" src="//img11.360buyimg.com/n3/jfs/t1507/6/332275955/196319/e0cf03fc/557577a8Nd1fd2b15.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/963181.html" target="_blank">乐事无限薯片104g*3组合装</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥19.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="963181" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1227877$index=1$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=cf324f51be4e3bdd5422ea41cdeb803c1e67ea16" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1227877$index=1$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=cf324f51be4e3bdd5422ea41cdeb803c1e67ea16')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1227877.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t1072/66/3708001/181105/fdc23c79/54d9ccfaN2c4c3edd.jpg" alt="旺旺 仙贝 加量装 540g" src="//img12.360buyimg.com/n3/jfs/t1072/66/3708001/181105/fdc23c79/54d9ccfaN2c4c3edd.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1227877.html" target="_blank">旺旺 仙贝 加量装 540g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥19.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1227877" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1152043$index=2$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=8454b14ff24cb3f73cbf7e9b1328fef6e5ad414d" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1152043$index=2$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=8454b14ff24cb3f73cbf7e9b1328fef6e5ad414d')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1152043.html" target="_blank"><img width="130" height="130" data-src="//img13.360buyimg.com/n3/jfs/t985/34/38453510/97772/ce771cdb/54f00207Nc13719b7.jpg" alt="旺旺 旺仔牛奶 原味 (铁罐装) 245ml" src="//img13.360buyimg.com/n3/jfs/t985/34/38453510/97772/ce771cdb/54f00207Nc13719b7.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1152043.html" target="_blank">旺旺 旺仔牛奶 原味 (铁罐装) 245ml</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥4.50</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1152043" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=495359$index=3$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=ffcbc9bc115051736fd5837b942bcd45e5ac64d" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=495359$index=3$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=ffcbc9bc115051736fd5837b942bcd45e5ac64d')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/495359.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/g13/M02/13/0E/rBEhUlLnaTUIAAAAAAMK_f1Uo2EAAIQ_ABP_iwAAwsV700.jpg" alt="好丽友薯愿三联包104g*3" src="//img14.360buyimg.com/n3/g13/M02/13/0E/rBEhUlLnaTUIAAAAAAMK_f1Uo2EAAIQ_ABP_iwAAwsV700.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/495359.html" target="_blank">好丽友薯愿三联包104g*3</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥21.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="495359" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1227879$index=4$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=39f74a7a4f5296b5580d55f528f7ccfca4cbb15f" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1227879$index=4$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=39f74a7a4f5296b5580d55f528f7ccfca4cbb15f')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1227879.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/jfs/t961/134/535939332/195792/52c9bb18/552e2d59N835ccc62.jpg" alt="旺旺  雪饼 加量装 540g" src="//img14.360buyimg.com/n3/jfs/t961/134/535939332/195792/52c9bb18/552e2d59N835ccc62.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1227879.html" target="_blank">旺旺 雪饼 加量装 540g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥19.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1227879" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859757$index=5$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=70a58d85840b5b20110d2128911542348d44ec40" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859757$index=5$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=70a58d85840b5b20110d2128911542348d44ec40')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/859757.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/g14/M02/12/16/rBEhV1JGNxUIAAAAAALQG-OsT8gAADpqwLI5Q0AAtAz198.jpg" alt="太阳小米锅巴麻辣味50g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/859757.html" target="_blank">太阳小米锅巴麻辣味50g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥1.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="859757" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=947485$index=6$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=47e2f528d94bea3d5a74c3beccb697c7d90ea9b9" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=947485$index=6$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=47e2f528d94bea3d5a74c3beccb697c7d90ea9b9')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/947485.html" target="_blank"><img width="130" height="130" data-src="//img10.360buyimg.com/n3/g5/M02/00/09/rBEIDE-6CMgIAAAAAAQsn2vCvM0AAADtAGOgcMABCy3966.jpg" alt="好巴食豆腐干多种口味混合装1000g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/947485.html" target="_blank">好巴食豆腐干多种口味混合装1000g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥34.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="947485" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=963207$index=7$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=c8ccec7293cd707180c62f6d801f3d62d09321db" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=963207$index=7$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=c8ccec7293cd707180c62f6d801f3d62d09321db')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/963207.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t190/69/770033141/183332/246a7237/53993ec5N9cf09aa5.jpg" alt="百事食品零食万花筒分享装350g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/963207.html" target="_blank">百事食品零食万花筒分享装350g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥43.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="963207" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1152037$index=8$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=b3ff9ffef18269bb7f4ba8fa68af22fc3ffeae31" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1152037$index=8$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=b3ff9ffef18269bb7f4ba8fa68af22fc3ffeae31')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1152037.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t1147/9/3539622/144316/ecbdb080/54d9cc0dNb13e9f88.jpg" alt="旺旺 香蕉 牛奶 190ml*12" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1152037.html" target="_blank">旺旺 香蕉 牛奶 190ml*12</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥54.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1152037" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859518$index=9$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=40ec3bc4c7677929704f38b138c256bf42529ef3" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859518$index=9$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=40ec3bc4c7677929704f38b138c256bf42529ef3')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/859518.html" target="_blank"><img width="130" height="130" data-src="//img13.360buyimg.com/n3/jfs/t991/91/209928671/151771/239233a1/550a8f84Ndf0f7fdf.jpg" alt="旺旺浪味仙蔬菜味70g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/859518.html" target="_blank">旺旺浪味仙蔬菜味70g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥5.20</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="859518" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859509$index=10$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=3c01c15ad4de78720dac6f2a97c63e6a174b0045" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859509$index=10$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=3c01c15ad4de78720dac6f2a97c63e6a174b0045')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/859509.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/g14/M00/19/15/rBEhVVJ3Qd0IAAAAAAKI-MLwPNYAAFBAwD6sRUAAokQ480.jpg" alt="旺旺挑豆豌豆95g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/859509.html" target="_blank">旺旺挑豆豌豆95g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥3.70</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="859509" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1152056$index=11$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=88b081f1f3a9aaccd60fd2e4cf2576f85dea0582" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1152056$index=11$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=88b081f1f3a9aaccd60fd2e4cf2576f85dea0582')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1152056.html" target="_blank"><img width="130" height="130" data-src="//img11.360buyimg.com/n3/jfs/t175/144/812371011/114376/209e5cdc/53990b65N006e3fc9.jpg" alt="旺旺 旺仔 小馒头 特浓牛奶味 210g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1152056.html" target="_blank">旺旺 旺仔 小馒头 特浓牛奶味 210g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥9.50</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1152056" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859573$index=12$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=9a733791e4081146503199a9d43c5a113ca4b940" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859573$index=12$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=9a733791e4081146503199a9d43c5a113ca4b940')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/859573.html" target="_blank"><img width="130" height="130" data-src="//img13.360buyimg.com/n3/jfs/t1126/184/307132913/172524/4b3da5a7/551e6d72Nc49aff83.jpg" alt="喜之郎什锦果汁果冻120g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/859573.html" target="_blank">喜之郎什锦果汁果冻120g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥1.80</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="859573" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859527$index=13$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=bacfc53b8daaa426c3232616f62eeeb67a353d58" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=859527$index=13$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=bacfc53b8daaa426c3232616f62eeeb67a353d58')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/859527.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t907/362/3841623/129757/3ca0c2e1/54d9dbffN4e9bee9c.jpg" alt="旺旺厚烧海苔雪饼原味118g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/859527.html" target="_blank">旺旺厚烧海苔雪饼原味118g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥7.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="859527" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=883722$index=14$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=82d8797b475070fe5680cd3221d95836cb0e97c2" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=883722$index=14$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=82d8797b475070fe5680cd3221d95836cb0e97c2')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/883722.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/g17/M00/00/11/rBEbSVNwq3UIAAAAAALHqj1mbPAAAAUEgKwg8cAAsfC594.jpg" alt="米老头蛋黄煎饼饼干（牛奶味）300g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/883722.html" target="_blank">米老头蛋黄煎饼饼干（牛奶味）300g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥9.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="883722" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=923586$index=15$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=43c3386b904f471ab285e5b1e549973ee77a33c1" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=923586$index=15$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=43c3386b904f471ab285e5b1e549973ee77a33c1')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/923586.html" target="_blank"><img width="130" height="130" data-src="//img11.360buyimg.com/n3/jfs/t775/129/198597604/158737/1bb78262/54927142Nfd7cbd67.jpg" alt="友臣 肉松饼 208g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/923586.html" target="_blank">友臣 肉松饼 208g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥8.80</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="923586" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=384256$index=16$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=3f2f0cca2dc962da97ca008010e9ee8ca92bc15a" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=384256$index=16$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=3f2f0cca2dc962da97ca008010e9ee8ca92bc15a')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/384256.html" target="_blank"><img width="130" height="130" data-src="//img11.360buyimg.com/n3/jfs/t2188/41/382580333/182136/df22e85/560393c2N9b70338b.jpg" alt="好丽友好友趣三连包111g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/384256.html" target="_blank">好丽友好友趣三连包111g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥8.60</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="384256" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1295573$index=17$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=2121f1079102bbe9bf9b40090cddaaae606db8ee" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1295573$index=17$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=2121f1079102bbe9bf9b40090cddaaae606db8ee')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1295573.html" target="_blank"><img width="130" height="130" data-src="//img13.360buyimg.com/n3/jfs/t625/152/914049418/166802/e8468bfe/54978cafNac2c8ca5.jpg" alt="口水娃 口水鱼小鱼干 香辣味 15g*20/盒" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1295573.html" target="_blank">口水娃 口水鱼小鱼干 香辣味 15g*20/盒</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥19.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1295573" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1150544$index=18$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=420477d8159b81af7a9aefaac6ab1a7a01786b50" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1150544$index=18$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=420477d8159b81af7a9aefaac6ab1a7a01786b50')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1150544.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/jfs/t2401/15/76410956/174311/c48c523b/55ecef10N4cc6f1a8.jpg" alt="百草味 休闲 零食 紫薯花生 180g/袋" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1150544.html" target="_blank">百草味 休闲 零食 紫薯花生 180g/袋</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥6.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1150544" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1147991$index=19$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=43da5e1529a20598894e3b77e0a3e0a916ce24d0" onclick="log('http://mercury.jd.com/log.gif?t=rec.205000&amp;v=src=rec$action=1$reqsig=123c04d1953eae0cbb381ec48bdc69ea32d6f8bb$enb=1$sku=0$skus=1152042$csku=1147991$index=19$expid=104&amp;rid=5735599168757315661&amp;ver=1&amp;sig=43da5e1529a20598894e3b77e0a3e0a916ce24d0')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1147991.html" target="_blank"><img width="130" height="130" data-src="//img11.360buyimg.com/n3/jfs/t202/224/907276383/149059/7a15f1eb/539ab86cN37b84ceb.jpg" alt="旺旺 黑白配 香草味 60g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1147991.html" target="_blank">旺旺 黑白配 香草味 60g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥4.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1147991" clstag="pageclick|keycount|cart__201503041|1"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-con hide" id="tuijian-products" style="display: none;">
+                <div style="height:218;line-height:218px;" class="ac mt10">
+                    暂时无结果
+                </div>
+            </div>
+            <div class="tab-con hide" id="favorite-products" style="display: none; height: 247px; line-height: 247px;">
+                <div class="ac mt10">
+                    暂时无结果
+                </div>
+            </div>
+            <div class="tab-con hide" id="history-products" style="display: none;">
+                <div class="p-list" data-widget="tab-content">
+                    <a class="prev arrow-btns disabled" href="#none"></a>
+                    <a class="next arrow-btns" href="#none"></a>
+                    <div class="p-list-cont ui-switchable-body" style="position: relative;">
+                        <ul class="ui-switchable-panel-main" style="width: 2112px; left: 0px; position: absolute;">
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1152042$index=0$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=7deb28425717ca230c13692c6865b8ffa1b75ec9" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1152042$index=0$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=7deb28425717ca230c13692c6865b8ffa1b75ec9')" class="ui-switchable-panel ui-switchable-panel-selected" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1152042.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t481/43/1455794310/194597/d2f713ee/54d9cccdN9e909aa3.jpg" alt="旺旺 旺仔 牛奶 原味 礼盒装 125ml*20" src="//img12.360buyimg.com/n3/jfs/t481/43/1455794310/194597/d2f713ee/54d9cccdN9e909aa3.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1152042.html" target="_blank">旺旺 旺仔 牛奶 原味 礼盒装 125ml*20</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥42.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1152042" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=956631$index=1$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=899cf60a5a0afce8a26d174a0cdd4412bb1e065" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=956631$index=1$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=899cf60a5a0afce8a26d174a0cdd4412bb1e065')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/956631.html" target="_blank"><img width="130" height="130" data-src="//img11.360buyimg.com/n3/jfs/t1870/267/171353668/127181/240b7ebe/55f29bc2N0409a30d.jpg" alt="Heinz亨氏胡萝卜鳕鱼泥113g" src="//img11.360buyimg.com/n3/jfs/t1870/267/171353668/127181/240b7ebe/55f29bc2N0409a30d.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/956631.html" target="_blank">Heinz亨氏胡萝卜鳕鱼泥113g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥11.60</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="956631" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1278112$index=2$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=cf1c0da35012caad172d6610764ec3948f6b63d6" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1278112$index=2$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=cf1c0da35012caad172d6610764ec3948f6b63d6')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1278112.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t1831/134/901280028/244621/37fd0613/55dd63afN78237e9a.jpg" alt="百草味 坚果礼盒 零食大礼包年货干果礼盒 和家欢1480g/盒" src="//img12.360buyimg.com/n3/jfs/t1831/134/901280028/244621/37fd0613/55dd63afN78237e9a.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1278112.html" target="_blank">百草味 坚果礼盒 零食大礼包年货干果礼盒 和家欢1480g/盒</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥138.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1278112" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=188549$index=3$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=13caf5e7532fa785094db2efb87d59a7982253d6" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=188549$index=3$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=13caf5e7532fa785094db2efb87d59a7982253d6')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/188549.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/jfs/t295/236/1720545939/85252/f3919c11/5440b0b1N05f0c0b4.jpg" alt="曼秀雷敦（Mentholatum）男士冰爽活炭洁面乳150ml（洗面奶去油 ）" src="//img14.360buyimg.com/n3/jfs/t295/236/1720545939/85252/f3919c11/5440b0b1N05f0c0b4.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/188549.html" target="_blank">曼秀雷敦（Mentholatum）男士冰爽活炭洁面乳150ml（洗面奶去油 ）</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥40.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="188549" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=968790$index=4$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=50c3e324304ee091df63165afea9f0774ab2d2e1" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=968790$index=4$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=50c3e324304ee091df63165afea9f0774ab2d2e1')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/968790.html" target="_blank"><img width="130" height="130" data-src="//img10.360buyimg.com/n3/g15/M02/07/10/rBEhWlIgAVYIAAAAAAHAS9e0XCUAACmhgDRG7cAAcBj983.jpg" alt="步步高（BBK） 点读机 T800-E 蓝色 4G 点读笔 小学初中同步 幼儿早教机 学习机 故事机" src="//img10.360buyimg.com/n3/g15/M02/07/10/rBEhWlIgAVYIAAAAAAHAS9e0XCUAACmhgDRG7cAAcBj983.jpg" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/968790.html" target="_blank">步步高（BBK） 点读机 T800-E 蓝色 4G 点读笔 小学初中同步 幼儿早教机 学习机 故事机</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥698.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="968790" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1627151532$index=5$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=a6af98ddabc25e924b8e113396a5fffb244d1b21" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1627151532$index=5$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=a6af98ddabc25e924b8e113396a5fffb244d1b21')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1627151532.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t1000/65/1403557507/293883/35186b97/559c9157N2c2745c9.jpg" alt="韩都衣舍 韩版2015秋装新款女装宽松翻领拼接长袖T恤KY5185② 藏蓝色 M" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1627151532.html" target="_blank">韩都衣舍 韩版2015秋装新款女装宽松翻领拼接长袖T恤KY5185② 藏蓝色 M</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥238.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1627151532" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1461669573$index=6$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=a3049f815e7b6a401e9bc1cc22a483f77d4f5c7e" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1461669573$index=6$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=a3049f815e7b6a401e9bc1cc22a483f77d4f5c7e')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1461669573.html" target="_blank"><img width="130" height="130" data-src="//img13.360buyimg.com/n3/jfs/t676/337/1046883019/58549/5ff82780/54c75cf2N77fbabbe.jpg" alt="哈森/Harson 2015春季新款尖头内增高金属扣单鞋 羊皮女鞋HS59025 桃红色 37" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1461669573.html" target="_blank">哈森/Harson 2015春季新款尖头内增高金属扣单鞋 羊皮女鞋HS59025 桃红色 37</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥339.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1461669573" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1211620494$index=7$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=aa805359cbdbb8aaa5c5a2e4c1674d90598c3c5f" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1211620494$index=7$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=aa805359cbdbb8aaa5c5a2e4c1674d90598c3c5f')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1211620494.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/jfs/t181/1/1822427962/189695/a2897c3b/53bba25fNcf770f6c.jpg" alt="哈森 2015春夏热销真皮单鞋女 鱼嘴细高跟舒适浅口欧美风女鞋HL49093 黑色 37" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1211620494.html" target="_blank">哈森 2015春夏热销真皮单鞋女 鱼嘴细高跟舒适浅口欧美风女鞋HL49093 黑色 37</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥269.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1211620494" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1124252$index=8$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=1438ed653a1f597121196580608238e781e60d38" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1124252$index=8$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=1438ed653a1f597121196580608238e781e60d38')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1124252.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/g17/M00/02/16/rBEbSlNy0wEIAAAAAAFJLonO-VAAAAunwFMVG4AAUlG274.jpg" alt="步步高（BBK） 点读机 T500S 果绿色 4G 点读笔 小学初中同步 幼儿早教机 学习机 故事机" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1124252.html" target="_blank">步步高（BBK） 点读机 T500S 果绿色 4G 点读笔 小学初中同步 幼儿早教机 学习机 故事机</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥488.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1124252" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=947485$index=9$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=e45093f02214ba34a657e5c20c3afec104d3ec2" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=947485$index=9$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=e45093f02214ba34a657e5c20c3afec104d3ec2')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/947485.html" target="_blank"><img width="130" height="130" data-src="//img10.360buyimg.com/n3/g5/M02/00/09/rBEIDE-6CMgIAAAAAAQsn2vCvM0AAADtAGOgcMABCy3966.jpg" alt="好巴食豆腐干多种口味混合装1000g" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/947485.html" target="_blank">好巴食豆腐干多种口味混合装1000g</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥34.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="947485" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1105329$index=10$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=aa3a82fcb40d805cd5f19c843040caaf592b1a24" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1105329$index=10$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=aa3a82fcb40d805cd5f19c843040caaf592b1a24')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1105329.html" target="_blank"><img width="130" height="130" data-src="//img14.360buyimg.com/n3/jfs/t271/284/1379586694/123698/2f6b04b5/5438dd95Ncaca3ce8.jpg" alt="友臣 肉松饼 2500克 整箱装(新老包装随机发放中)" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1105329.html" target="_blank">友臣 肉松饼 2500克 整箱装(新老包装随机发放中)</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥69.90</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1105329" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                            <li data-clk="http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1343452$index=11$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=dd867e4b4be21260b07a2fc7ae7c0634cc632659" onclick="log('http://mercury.jd.com/log.gif?t=rec.906005&amp;v=src=rec$action=1$reqsig=a368111d394150afa06ea9a842c8ae7e3ac2304b$enb=1$sku=0$skus=1152042$csku=1343452$index=11$expid=90600500115030913&amp;rid=5997525853929087701&amp;ver=1&amp;sig=dd867e4b4be21260b07a2fc7ae7c0634cc632659')" class="ui-switchable-panel" style="float: left; display: list-item;">
+                                <div class="p-item">
+                                    <div class="p-img">
+                                        <a href="http://item.jd.com/1343452.html" target="_blank"><img width="130" height="130" data-src="//img12.360buyimg.com/n3/jfs/t1525/7/9242534/136074/ff6a10ea/554c76a6Nfb425222.jpg" alt="荣耀 6 Plus (PE-CL00) 3GB内存标准版 白色 电信4G手机 双卡双待双通" /></a>
+                                    </div>
+                                    <div class="p-name">
+                                        <a href="http://item.jd.com/1343452.html" target="_blank">荣耀 6 Plus (PE-CL00) 3GB内存标准版 白色 电信4G手机 双卡双待双通</a>
+                                    </div>
+                                    <div class="p-price">
+                                        <strong>￥1799.00</strong>
+                                    </div>
+                                    <div class="p-btn">
+                                        <a class="btn-9" href="javascript:void(0);" _pid="1343452" clstag="pageclick|keycount|cart__201503041|3"><span class="btn-text">加入购物车</span></a>
+                                    </div>
+                                </div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w">
+        <div class="backpanel-inner">
+            <div id="bp-follow" class="bp-item ">
+                <a clstag="pageclick|keycount|cart__201503041|10" target="_blank" class="survey" href="http://t.jd.com/follow/product">我的关注</a>
+            </div>
+            <div class="bp-item " id="bp-faq">
+                <a href="http://help.jd.com/user/issue/34-1098.html" class="survey" target="_blank" clstag="pageclick|keycount|cart__201503041|6">常见问题</a>
+            </div>
+            <div class="bp-item " id="bp-survery">
+                <a href="http://surveys.jd.com/index.php?r=survey/index/sid/487227/newtest/Y/lang/zh-Hans" class="survey" target="_blank" clstag="clickcart|keycount|xincart|cart_gotoFeedback">我要反馈</a>
+            </div>
+            <div class="bp-item " id="bp-backtop" style="display: none;">
+                <a href="#none" class="backtop" target="_self" clstag="clickcart|keycount|xincart|cart_backTop">返回顶部</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /main -->
+<div id="service-2014">
+    <div class="slogen">
+        <span class="item fore1"> <i></i><b>多</b>品类齐全，轻松购物 </span>
+        <span class="item fore2"> <i></i><b>快</b>多仓直发，极速配送 </span>
+        <span class="item fore3"> <i></i><b>好</b>正品行货，精致服务 </span>
+        <span class="item fore4"> <i></i><b>省</b>天天低价，畅选无忧 </span>
+    </div>
+    <div class="w">
+        <dl class="fore1">
+            <dt>
+                购物指南
+            </dt>
+            <dd>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-29.html">购物流程</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-151.html">会员介绍</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-297.html">生活旅行/团购</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue.html">常见问题</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-136.html">大家电</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/index.html">联系客服</a>
+                </div>
+            </dd>
+        </dl>
+        <dl class="fore2">
+            <dt>
+                配送方式
+            </dt>
+            <dd>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-81-100.html">上门自提</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-81.html">211限时达</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/103-983.html">配送服务查询</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/109-188.html">配送费收取标准</a>
+                </div>
+                <div>
+                    <a target="_blank" href="http://en.jd.com/chinese.html">海外配送</a>
+                </div>
+            </dd>
+        </dl>
+        <dl class="fore3">
+            <dt>
+                支付方式
+            </dt>
+            <dd>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-172.html">货到付款</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-173.html">在线支付</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-176.html">分期付款</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-174.html">邮局汇款</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-175.html">公司转账</a>
+                </div>
+            </dd>
+        </dl>
+        <dl class="fore4">
+            <dt>
+                售后服务
+            </dt>
+            <dd>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/321-981.html">售后政策</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-132.html">价格保护</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/130-978.html">退款说明</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://myjd.jd.com/repair/repairs.action">返修/退换货</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://help.jd.com/user/issue/list-50.html">取消订单</a>
+                </div>
+            </dd>
+        </dl>
+        <dl class="fore5">
+            <dt>
+                特色服务
+            </dt>
+            <dd>
+                <div>
+                    <a target="_blank" href="http://help.jd.com/user/issue/list-133.html">夺宝岛</a>
+                </div>
+                <div>
+                    <a target="_blank" href="http://help.jd.com/user/issue/list-134.html">DIY装机</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://fuwu.jd.com/">延保服务</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://giftcard.jd.com/market/index.action">京东E卡</a>
+                </div>
+                <div>
+                    <a rel="nofollow" target="_blank" href="http://mobile.jd.com/">京东通信</a>
+                </div>
+            </dd>
+        </dl>
+        <span class="clr"></span>
+    </div>
+</div>
+<div class="w">
+    <div id="footer-2014">
+        <div class="links">
+            <a rel="nofollow" target="_blank" href="http://www.jd.com/intro/about.aspx">关于我们</a>|
+            <a rel="nofollow" target="_blank" href="http://www.jd.com/contact/">联系我们</a>|
+            <a rel="nofollow" target="_blank" href="http://www.jd.com/contact/joinin.aspx">商家入驻</a>|
+            <a rel="nofollow" target="_blank" href="http://jzt.jd.com">营销中心</a>|
+            <a rel="nofollow" target="_blank" href="http://app.jd.com/">手机京东</a>|
+            <a target="_blank" href="http://club.jd.com/links.aspx">友情链接</a>|
+            <a target="_blank" href="http://media.jd.com/">销售联盟</a>|
+            <a href="http://club.jd.com/" target="_blank">京东社区</a>|
+            <a href="http://gongyi.jd.com" target="_blank">京东公益</a>|
+            <a href="http://en.jd.com/" target="_blank">English Site</a>|
+            <a href="http://help.en.jd.com/help/question-46.html" target="_blank">Contact Us</a>
+        </div>
+        <div class="copyright">
+            北京市公安局朝阳分局备案编号110105014669&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证070359号&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a target="_blank" href="http://img14.360buyimg.com/da/jfs/t256/349/769670066/270505/3b03e0bb/53f16c24N7c04d9e9.jpg">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>&nbsp;&nbsp;|&nbsp;&nbsp;新出发京零&nbsp;字第大120007号
+            <br />
+            <a rel="nofollow" href="http://misc.360buyimg.com/skin/df/i/com/f_music.jpg" target="_blank">音像制品经营许可证苏宿批005号</a>&nbsp;&nbsp;|&nbsp;&nbsp;出版物经营许可证编号新出发(苏)批字第N-012号&nbsp;&nbsp;|&nbsp;&nbsp;互联网出版许可证编号新出网证(京)字150号
+            <br />
+            <a href="http://misc.360buyimg.com/wz/wlwhjyxkz.jpg" target="_blank">网络文化经营许可证京网文[2014]2148-348号</a>&nbsp;&nbsp;违法和不良信息举报电话：4006561155&nbsp;&nbsp;Copyright&nbsp;&copy;&nbsp;2004-2015&nbsp;&nbsp;京东JD.com&nbsp;版权所有
+            <br />京东旗下网站：
+            <a target="_blank" href="http://www.360top.com/">360TOP</a>&nbsp;&nbsp;
+            <a href="http://www.paipai.com/" target="_blank">拍拍网</a>&nbsp;&nbsp;
+            <a href="https://www.wangyin.com/" target="_blank">网银在线</a>
+        </div>
+        <div class="authentication">
+            <a rel="nofollow" target="_blank" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202007080200026"> <img width="103" height="32" alt="经营性网站备案中心" src="//img12.360buyimg.com/da/jfs/t535/349/1185317137/2350/7fc5b9e4/54b8871eNa9a7067e.png" /> </a>
+            <a rel="nofollow" target="_blank" id="urlknet" tabindex="-1" href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&amp;ct=df&amp;pa=294005"> <img border="true" width="103" height="32" onclick="CNNIC_change('urlknet')" oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站" src="//img11.360buyimg.com/da/jfs/t643/61/1174624553/2576/4037eb5f/54b8872dNe37a9860.png" /> </a>
+            <a rel="nofollow" target="_blank" href="http://www.bj.cyberpolice.cn/index.do"> <img width="103" height="32" alt="朝阳网络警察" src="//img11.360buyimg.com/da/jfs/t559/186/1172042286/2795/7d90b036/54b8874bN694454a5.png" /> </a>
+            <a rel="nofollow" target="_blank" href="https://search.szfw.org/cert/l/CX20120111001803001836"> <img width="103" height="32" src="//img11.360buyimg.com/da/jfs/t451/173/1189513923/1992/ec69b14a/54b8875fNad1e0c4c.png" /> </a>
+            <a target="_blank" href="http://jubao.china.cn:13225/reportform.do"> <img width="185" height="32" src="//img10.360buyimg.com/da/jfs/t520/303/1151687373/1180/2f8340fc/54b8863dN8d2c61ec.png" /> </a>
+        </div>
+    </div>
+</div>
+
+<!-- 公共头尾js end -->
+<object id="ddplugin-msie" classid="CLSID:B35D742C-5983-40C1-A8C0-A7DBFA2EF05E" width="0" height="0"></object>
+<embed id="ddplugin" type="application/dd-plugin" width="0" height="0" />
+</body>
+</html>

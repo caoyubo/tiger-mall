@@ -1,0 +1,118 @@
+
+<script type="text/javascript" src="/jslib/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/js/info.js"></script>
+
+<div id="main" ng-controller="UserController">
+    <div class="mod-main">
+        <div class="mt">
+            <ul class="extra-l">
+                <li class="fore-1"><a class="#" href="#">基本信息</a></li>
+                <li class="fore-2"><a href="#">头像照片</a></li>
+                <li class="fore-3"><a href="#">更多个人信息</a></li>
+            </ul>
+        </div>
+        <form id="formData">
+            <div class="mc">
+            <div class="user-set userset-lcol">
+                <div class="form">
+                    <div class="item">
+                        <span class="label"><em></em>昵称：</span>
+                        <div class="fl">
+                            <input type="text" class="itxt" maxlength="20" id="uname" name="uname" value="<%=user.uname%>" />
+                            <div class="clr"></div>
+                            <div class="prompt-06">
+                                <span id="nickName_msg"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="label"><em></em>真实姓名：</span>
+                        <div class="fl">
+                            <input type="text" class="itxt" maxlength="20" id="name" name="name" value="<%=user.name%>" />
+                            <div class="clr"></div>
+                            <div class="prompt-06">
+                                <span id="nickName_msg"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="label"><em></em>身份证号：</span>
+                        <div class="fl">
+                            <input type="text" class="itxt" maxlength="20" id="idcard" name="idcard" value="<%=user.idcard%>" />
+                            <div class="clr"></div>
+                            <div class="prompt-06">
+                                <span id="nickName_msg"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="label"><em></em>QQ号：</span>
+                        <div class="fl">
+                            <input type="text" class="itxt" maxlength="20" id="qq" name="qq" value="<%=user.qq%>" />
+                            <div class="clr"></div>
+                            <div class="prompt-06">
+                                <span id="nickName_msg"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="label"><em>*</em>性别：</span>
+                        <div class="fl" clstag="homepage|keycount|home2013|infoGender">
+                            <input type="radio" name="sex" class="jdradio" value="1" checked />
+                            <label class="mr10">男</label>
+                            <input type="radio" name="sex" class="jdradio" value="2" />
+                            <label class="mr10">女</label>
+                            <!--<input type="radio" name="sex" class="jdradio" value="2" />
+                            <label class="mr10">保密</label>-->
+                        </div>
+                    </div>
+                    <div class="item" clstag="homepage|keycount|home2013|infoBirthday">
+                        <span class="label">生日：</span>
+                        <div class="fl birthday-info">
+                            <input name="birthday" id="birthday" class="Wdate itxt" type="text" onClick="WdatePicker()">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="label">&nbsp;</span>
+                        <div class="fl">
+                            <input id="code" value="472003" style="display:none">
+                            <input id="rkey" value="" style="display:none">
+                            <a href="javascript:void(0)" class="btn-5" onclick="updateUserInfo()">提交</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="user-info">
+                <div class="u-pic">
+                    <img alt="用户头像" src="//i.jd.com/commons/img/no-img_mid_.jpg" />
+                    <div class="mask"></div>
+                    <div class="face-link-box"></div>
+                    <a href="http://i.jd.com/user/userinfo/showImg.html" class="face-link">修改头像</a>
+                </div>
+                <div class="info-m">
+                    <div>
+                        <b>用户名：ljm13411247519</b>
+                    </div>
+                    <div class="u-level">
+           <span class="rank r2">
+            <s></s><a clstag="homepage|keycount|home2013|infoMember" href="http://usergrade.jd.com/user/grade" target="_blank">铜牌会员</a> </span>
+                    </div>
+                    <div class="shop-level">
+                        购物行为评级：
+           <span><a target="_blank" href="http://vip.jd.com/help_behaviorRating.html">
+               <s id="userCredit" class="rank-sh rank-sh01 rank-sh03"></s></a></span>
+                    </div>
+                    <div>
+                        会员类型：个人用户
+                    </div>
+                </div>
+            </div>
+            <div class="fr ac" style="width:280px;">
+                注：修改手机和邮箱请到
+                <a clstag="homepage|keycount|home2013|infopay" class="ml5 ftx05" href="http://safe.jd.com/user/paymentpassword/safetyCenter.action">账户安全</a>
+            </div>
+            <div class="clr"></div>
+        </div>
+        </form>
+    </div>
+</div>

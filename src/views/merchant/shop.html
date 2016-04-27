@@ -1,0 +1,102 @@
+
+<link href="/hDialog/css/common.css" rel="stylesheet" type="text/css">
+<script src="/hDialog/js/jquery.hDialog.min.js" ></script>
+<script src="/js/public/public.js"></script>
+<script src="/js/shop.js"></script>
+<style>
+    .hide{ display: none}
+    .select{
+        float: left;
+        margin-right: 15px;
+    }
+</style>
+<div class="w">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="lh-50">店铺基本信息</h3>
+            <div class="more">
+                <div class="progress">
+                    <div class="progress-wrap">
+                        <div class="progress-item passed">
+                            <div class="number">1</div>
+                            <div class="progress-desc">入驻须知</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item passed">
+                            <div class="number">2</div>
+                            <div class="progress-desc">公司信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item ongoing">
+                            <div class="number">3</div>
+                            <div class="progress-desc">店铺信息认证</div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <div class="progress-item tobe">
+                            <div class="number"><i class="tick"></i></div>
+                            <div class="progress-desc">等待审核</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container"></div>
+        <form action="" method="post" onsubmit="return false;" id="shop">
+            <input type="hidden" id="oldPicturePath" name="oldPicturePath"/>
+            <div class="panel-body">
+                <div class="m">
+                    <div class="mt">
+                        <h4 class="title">经营信息</h4>
+                    </div>
+                    <div class="mc">
+                        <dl class="horizontal fl">
+                            <dt><span class="red">*</span>店铺分类</dt>
+                            <dd>
+                                <select name="shopCategory" class="select"   id="provinceDiv"  onchange="shopCategoryRegion('shopCategoryRegionId','provinceDiv')">
+                                        <option value="0" >请选择</option>
+                                    <% for(var i in content) {%>
+                                        <option value="<%=content[i].id%>"  title="<%=content[i].parentId%>" >  <%=content[i].regionName%></option>
+                                    <% } %>
+                                </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <select name="shopCategoryRegionId" class="select  hide"   id="shopCategoryRegionId" onchange="shopCategoryRegion('shopCategoryRegionsid','shopCategoryRegionId')"  ></select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <select name="shopCategorysid" class="select hide"   id="shopCategoryRegionsid"  > </select>
+                            </dd>
+                            <dt><span class="red">*</span>申请人</dt>
+                            <dd>
+                                <input type="text" class="input" name="userName" value=""/>
+                            </dd>
+                            <dt>店铺名称</dt>
+                            <dd>
+                                <input type="text" class="input" name="shopName" value=""/>
+                                <span class="grey ml10"></span>
+                            </dd>
+                            <dt><span class="red">*</span>店铺描述</dt>
+                            <dd>
+                                <input type="text" class="input" name="description" value=""/>
+                                <span class="grey ml10"></span>
+
+                            </dd>
+                            <dt><span class="red">*</span>联系方式</dt>
+                            <dd>
+                                <input  type="text"  name="telephone" value=""  />
+                            </dd>
+                            <dt  class="experience"><span class="red">*</span>商店所在地</dt>
+                            <dd  class="experience">
+                                <input type="text" class="input"  name="address" value=""/>
+                            </dd>
+                            <input type="hidden" class="input"  name="pdefault" value=""/>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group t-r">
+                <a href="javascript:void(0);" class="btn-vice" id="prevStepBtn">上一步</a>
+                <input type="submit" value="下一步，完善类目及资质" class="btn" id="nextStepBtn"/>
+            </div>
+        </form>
+    </div>
+</div>
+
